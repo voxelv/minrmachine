@@ -14,7 +14,7 @@ var middle_mouse_pressed = false
 
 # Available Zoom Levels and the relative zoom (e.g. 2x)
 var zoom_set =   [ 0.125, 0.25,  0.5,  1.0 ]
-var zoom_times = [     8,    4,    2,    1 ]
+var zoom_times = [     4,    2,    1,  0.5 ]
 var zoom_idx = zoom_set.find(1.0)  # Current zoom index
 
 func _ready():
@@ -23,7 +23,7 @@ func _ready():
 	
 	# Wait a frame before doing the following
 	yield(get_tree(), "idle_frame")
-	constrain_offset()
+	reset_and_center_view()
 
 func set_zoom_label():
 	emit_signal("zoom_label_set", zoom_times[zoom_idx])
@@ -78,7 +78,7 @@ func set_zoom_at_mouse(set_zoom_to):
 	zoom.y = zoom_factor
 
 func constrain_offset():
-	var TOP_LEFT_MARGIN = -1
+	var TOP_LEFT_MARGIN = 0
 	var game_glass_size = game_glass.rect_size * zoom
 	var game_grid_size = game_grid.get_grid_rect().size
 	
@@ -101,18 +101,27 @@ func constrain_offset():
 	if game_glass_size.y > game_grid_size.y:
 		offset.y = (game_grid_size.y / 2.0) - (game_glass_size.y / 2.0)
 
-func _on_reset_view_button_pressed():
-	zoom_idx = zoom_set.find(1.0)
+func center_offset():
+	var TOP_LEFT_MARGIN = 0
+	var game_glass_size = game_glass.rect_size * zoom
+	var game_grid_size = game_grid.get_grid_rect().size
+	offset.x = (game_grid_size.x / 2.0) - (game_glass_size.x / 2.0)
+	offset.y = (game_grid_size.y / 2.0) - (game_glass_size.y / 2.0)
+	
+func reset_and_center_view():
+	zoom_idx = zoom_times.find(1)
 	zoom_factor = zoom_set[zoom_idx]
-	zoom.x = 1.0
-	zoom.y = 1.0
+	zoom.x = zoom_set[zoom_idx]
+	zoom.y = zoom_set[zoom_idx]
 	offset.x = 0
 	offset.y = 0
 	set_zoom_label()
 	
-	var gg_center = (game_glass.rect_size / 2.0) + game_glass.rect_position
-	var gg_center_ratio = gg_center / get_node("/root").size
 	constrain_offset()
+	center_offset()
+
+func _on_reset_view_button_pressed():
+	reset_and_center_view()
 	
 func _window_size_changed():
 	yield(get_tree(), "idle_frame")

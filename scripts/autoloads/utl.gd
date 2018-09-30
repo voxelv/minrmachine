@@ -6,7 +6,7 @@ enum DIRECTION {DIR_N, DIR_E, DIR_S, DIR_W, DIR_INV}
 
 const TILES_PER_SIDE = 25
 
-const CELL_SIZE_PIXELS = 17.0
+const CELL_SIZE_PIXELS = 25.0
 
 func _2d_to_idx(x, y, width):
 	var result = (width * y) + x

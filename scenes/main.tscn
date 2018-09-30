@@ -405,7 +405,7 @@ script = ExtResource( 5 )
 
 [node name="player_cell" parent="game_area/game_grid" index="1" instance=ExtResource( 6 )]
 
-position = Vector2( 170, 170 )
+position = Vector2( 250, 250 )
 script = ExtResource( 7 )
 width = 1
 height = 1

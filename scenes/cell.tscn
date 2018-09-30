@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/textures/cell.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/cell25x.png" type="Texture" id=1]
 
 [node name="player_cell" type="Node2D"]
 
@@ -38,7 +38,7 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="cellv_test_pos" type="Position2D" parent="." index="2"]
 
-position = Vector2( 8, 8 )
+position = Vector2( 12.5, 12.5 )
 _sections_unfolded = [ "Transform" ]
 
 
