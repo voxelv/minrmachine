@@ -27,15 +27,16 @@ func register_grid_object(grid_object):
 	grid_object.grid = self
 	grid_object.cellv = world_to_map(grid_object.position)
 	grid_object.position = map_to_world(grid_object.cellv)
-	
-	var start_coord = grid_object.cellv
-	for i in range(grid_object.width):
-		for j in range(grid_object.height):
-			var coord = [int(start_coord.x) + i, int(start_coord.y) + j]
-			#var prev_obj = tilemap.get_cell(coord[X], coord[Y]) # Handle this????????
-#			tilemap.set_cell(coord[X], coord[Y], utl.GRID_MULTI_CELL_SUBCELL)
-			grid_obj_at_cell[utl._2d_to_idx(coord[X], coord[Y], utl.TILES_PER_SIDE)] = grid_object
-#	tilemap.set_cellv(grid_object.cellv, utl.GRID_MULTI_CELL)
+
+# Set Tilemap tiles for new grid object
+#	var start_coord = grid_object.cellv
+#	for i in range(grid_object.width):
+#		for j in range(grid_object.height):
+#			var coord = [int(start_coord.x) + i, int(start_coord.y) + j]
+#			#var prev_obj = tilemap.get_cell(coord[X], coord[Y]) # Handle this????????
+##			tilemap.set_cell(coord[X], coord[Y], utl.GRID_MULTI_CELL_SUBCELL)
+#			grid_obj_at_cell[utl._2d_to_idx(coord[X], coord[Y], utl.TILES_PER_SIDE)] = grid_object
+##	tilemap.set_cellv(grid_object.cellv, utl.GRID_MULTI_CELL)
 
 func world_to_map(pos):
 	var result = tilemap.world_to_map(pos)
@@ -49,22 +50,31 @@ func request_move(grid_object, direction):
 	
 	
 	var can_move = true
-	print("cellv test: ", grid_object.get_cellv_test_pos())
 	var coord = world_to_map(grid_object.get_cellv_test_pos())
+	print("cellv coord: ", coord)
 	
 	# Check if can move
 	match(direction):
 		utl.DIR_N:
 			for i in range(grid_object.width):
-				print("check: ", coord.x + i, ", ", coord.y)
-				if tilemap.get_cell(coord.x + i, coord.y) != utl.GRID_NONE:
+				print("check: ", coord.x + i, ", ", coord.y - 1)
+				if tilemap.get_cell(coord.x + i, coord.y - 1) != utl.GRID_NONE:
 					can_move = false
 		utl.DIR_E:
-			pass
+			for i in range(grid_object.height):
+				print("check: ", coord.x + grid_object.width, ", ", coord.y + i )
+				if tilemap.get_cell(coord.x + grid_object.width, coord.y + i) != utl.GRID_NONE:
+					can_move = false
 		utl.DIR_S:
-			pass
+			for i in range(grid_object.width):
+				print("check: ", coord.x + i, ", ", coord.y + grid_object.height)
+				if tilemap.get_cell(coord.x + i, coord.y + grid_object.height) != utl.GRID_NONE:
+					can_move = false
 		utl.DIR_W:
-			pass
+			for i in range(grid_object.height):
+				print("check: ", coord.x - 1, ", ", coord.y + i)
+				if tilemap.get_cell(coord.x - 1, coord.y + i) != utl.GRID_NONE:
+					can_move = false
 	print("CAN MOVE? ", can_move)
 
 	# If can_move:
