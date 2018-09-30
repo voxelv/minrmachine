@@ -2,7 +2,7 @@ extends Camera2D
 
 const zoom_speed = 0.05
 
-onready var game_glass = get_node("/root/main/top_ui_layer/HBoxContainer/VBoxContainer/game_glass")
+onready var game_glass = get_node("/root/main/ui_layer/HBoxContainer/VBoxContainer/game_glass")
 onready var prev_ggc = game_glass.get_node("game_glass_center").get_rect().position
 onready var game_grid = get_node("/root/main/game_area/game_grid")
 onready var tm = game_grid.get_node("TileMap")
@@ -101,7 +101,7 @@ func constrain_offset():
 	if game_glass_size.y > game_grid_size.y:
 		offset.y = (game_grid_size.y / 2.0) - (game_glass_size.y / 2.0)
 
-func _on_ResetViewButton_pressed():
+func _on_reset_view_button_pressed():
 	zoom_idx = zoom_set.find(1.0)
 	zoom_factor = zoom_set[zoom_idx]
 	zoom.x = 1.0
@@ -121,3 +121,4 @@ func _window_size_changed():
 	offset += offset_by
 	prev_ggc = ggc
 	constrain_offset()
+
