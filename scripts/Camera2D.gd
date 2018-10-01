@@ -77,20 +77,20 @@ func set_zoom_at_mouse(set_zoom_to):
 	zoom.y = zoom_factor
 
 func constrain_offset():
-	var TOP_LEFT_MARGIN = 0
+	var MARGIN = 50
 	var game_glass_size = game_glass.rect_size * zoom
 	var game_grid_size = game_grid.get_grid_rect().size
 	
-	var x_test = game_grid_size.x - game_glass_size.x
+	var x_test = game_grid_size.x - game_glass_size.x + MARGIN
 	if offset.x > x_test:
 		offset.x = x_test
-	var y_test = game_grid_size.y - game_glass_size.y
+	var y_test = game_grid_size.y - game_glass_size.y + MARGIN
 	if offset.y > y_test:
 		offset.y = y_test
-	if offset.x < TOP_LEFT_MARGIN:
-		offset.x = TOP_LEFT_MARGIN
-	if offset.y < TOP_LEFT_MARGIN:
-		offset.y = TOP_LEFT_MARGIN
+	if offset.x < -MARGIN:
+		offset.x = -MARGIN
+	if offset.y < -MARGIN:
+		offset.y = -MARGIN
 	
 	# If game_glass is bigger than the game_grid, the above code will result
 	# in the game_grid being 'snapped' to the top left corner. Now we can
