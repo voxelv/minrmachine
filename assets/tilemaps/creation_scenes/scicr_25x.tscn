@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/textures/stone25x.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/coal25x.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/iron25x.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/copper25x.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/radical25x.png" type="Texture" id=5]
+
+[node name="scicr_25x" type="Node2D"]
+
+[node name="stone" type="Sprite" parent="." index="0"]
+
+position = Vector2( 375, 225 )
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="coal" type="Sprite" parent="." index="1"]
+
+position = Vector2( 400, 225 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="iron" type="Sprite" parent="." index="2"]
+
+position = Vector2( 425, 225 )
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="copper" type="Sprite" parent="." index="3"]
+
+position = Vector2( 450, 225 )
+texture = ExtResource( 4 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="radical" type="Sprite" parent="." index="4"]
+
+position = Vector2( 475, 225 )
+texture = ExtResource( 5 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+
