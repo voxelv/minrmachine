@@ -2,17 +2,9 @@ extends Node2D
 
 onready var tilemap = get_node("TileMap")
 
-var grid_obj_at_cell = []
 var ready = false
 
-# easier indices
-const X = 0
-const Y = 1
-
 func _ready():
-	for i in range(utl.TILES_PER_SIDE):
-		for j in range(utl.TILES_PER_SIDE):
-			grid_obj_at_cell.append(null)
 	ready = true
 
 func get_grid_rect():
@@ -28,16 +20,6 @@ func register_grid_object(grid_object):
 	grid_object.cellv = world_to_map(grid_object.position)
 	grid_object.position = map_to_world(grid_object.cellv)
 
-# Set Tilemap tiles for new grid object
-#	var start_coord = grid_object.cellv
-#	for i in range(grid_object.width):
-#		for j in range(grid_object.height):
-#			var coord = [int(start_coord.x) + i, int(start_coord.y) + j]
-#			#var prev_obj = tilemap.get_cell(coord[X], coord[Y]) # Handle this????????
-##			tilemap.set_cell(coord[X], coord[Y], utl.GRID_MULTI_CELL_SUBCELL)
-#			grid_obj_at_cell[utl._2d_to_idx(coord[X], coord[Y], utl.TILES_PER_SIDE)] = grid_object
-##	tilemap.set_cellv(grid_object.cellv, utl.GRID_MULTI_CELL)
-
 func world_to_map(pos):
 	var result = tilemap.world_to_map(pos)
 	return(result)
@@ -47,8 +29,6 @@ func map_to_world(cellv):
 	return(result)
 
 func request_move(grid_object, direction):
-	
-	
 	var can_move = true
 	var coord = world_to_map(grid_object.get_cellv_test_pos())
 	print("cellv coord: ", coord)
@@ -84,11 +64,12 @@ func request_move(grid_object, direction):
 						can_move = false
 	print("CAN MOVE? ", can_move)
 
-	# If can_move:
-	#     return map_to_world(new_pos)
-	# else:
-	#     return map_to_world(old_pos)
-	pass
+	# Return the new position if can_move
+	var new_coord = coord + utl.dir_offset(direction)
+	if can_move:
+	    return map_to_world(new_coord)
+	else:
+	    return map_to_world(coord)
 
 
 

@@ -12,23 +12,22 @@ func _2d_to_idx(x, y, width):
 	var result = (width * y) + x
 	return(result)
 
-func _dir_offset(direction):
-	var X = 0
-	var Y = 1
-	var ofst = [0, 0]
+func dir_offset(direction):
+	var x = 0
+	var y = 0
 	
 	match(direction):
 		DIR_N:
-			ofst[Y] = -1
+			y = -1
 		DIR_E:
-			ofst[X] = 1
+			x = 1
 		DIR_S:
-			ofst[Y] = 1
+			y = 1
 		DIR_W:
-			ofst[X] = -1
+			x = -1
 		DIR_INV:
 			pass
 		_:
 			pass
-	return ofst
+	return Vector2(x, y)
 

@@ -15,7 +15,7 @@ var middle_mouse_pressed = false
 # Available Zoom Levels and the relative zoom (e.g. 2x)
 var zoom_set =   [ 0.125, 0.25,  0.5,  1.0 ]
 var zoom_times = [     4,    2,    1,  0.5 ]
-var zoom_idx = zoom_set.find(1.0)  # Current zoom index
+var zoom_idx = zoom_times.find(1)  # Current zoom index
 
 func _ready():
 	set_zoom_label()
@@ -46,8 +46,7 @@ func _unhandled_input(event):
 			constrain_offset()
 		elif event.button_index == BUTTON_LEFT && event.pressed:
 			var v = tm.world_to_map((event.position * zoom_factor) + offset)
-			print(v)
-			print(tm.get_cellv(v))
+			print(v, ": ", tm.get_cellv(v))
 
 func zoom_in():
 	zoom_idx -= 1
