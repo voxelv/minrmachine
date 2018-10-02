@@ -65,7 +65,7 @@ func request_move(grid_object, direction):
 	print("CAN MOVE? ", can_move)
 
 	# Return the new position if can_move
-	var new_coord = coord + utl.dir_offset(direction)
+	var new_coord = coord + utl.dir_to_offset(direction)
 	if can_move:
 	    return map_to_world(new_coord)
 	else:

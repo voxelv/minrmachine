@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/cell.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/player_cell.gd" type="Script" id=8]
 
-[node name="main" type="Node"]
+[node name="main" type="Node" index="0"]
 
 [node name="ui_layer" type="CanvasLayer" parent="." index="0"]
 
@@ -403,10 +403,11 @@ script = ExtResource( 3 )
 [node name="bg_stones" type="Node2D" parent="game_area" index="1"]
 
 editor/display_folded = true
+modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="stone_bg_c" type="Sprite" parent="game_area/bg_stones" index="0"]
 
-modulate = Color( 0.605469, 0.605469, 0.605469, 1 )
 scale = Vector2( 25, 25 )
 texture = ExtResource( 4 )
 centered = false
@@ -414,7 +415,6 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 [node name="stone_bg_n" type="Sprite" parent="game_area/bg_stones" index="1"]
 
-modulate = Color( 0.605469, 0.605469, 0.605469, 1 )
 position = Vector2( 0, -625 )
 scale = Vector2( 25, 25 )
 texture = ExtResource( 4 )
@@ -423,7 +423,6 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 [node name="stone_bg_nw" type="Sprite" parent="game_area/bg_stones" index="2"]
 
-modulate = Color( 0.605469, 0.605469, 0.605469, 1 )
 position = Vector2( -625, -625 )
 scale = Vector2( 25, 25 )
 texture = ExtResource( 4 )
@@ -432,7 +431,6 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 [node name="stone_bg_e" type="Sprite" parent="game_area/bg_stones" index="3"]
 
-modulate = Color( 0.605469, 0.605469, 0.605469, 1 )
 position = Vector2( 625, 0 )
 scale = Vector2( 25, 25 )
 texture = ExtResource( 4 )
@@ -441,7 +439,6 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 [node name="stone_bg_ne" type="Sprite" parent="game_area/bg_stones" index="4"]
 
-modulate = Color( 0.605469, 0.605469, 0.605469, 1 )
 position = Vector2( 625, -625 )
 scale = Vector2( 25, 25 )
 texture = ExtResource( 4 )
@@ -450,7 +447,6 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 [node name="stone_bg_s" type="Sprite" parent="game_area/bg_stones" index="5"]
 
-modulate = Color( 0.605469, 0.605469, 0.605469, 1 )
 position = Vector2( 0, 625 )
 scale = Vector2( 25, 25 )
 texture = ExtResource( 4 )
@@ -459,7 +455,6 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 [node name="stone_bg_se" type="Sprite" parent="game_area/bg_stones" index="6"]
 
-modulate = Color( 0.605469, 0.605469, 0.605469, 1 )
 position = Vector2( 625, 625 )
 scale = Vector2( 25, 25 )
 texture = ExtResource( 4 )
@@ -468,7 +463,6 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 [node name="stone_bg_w" type="Sprite" parent="game_area/bg_stones" index="7"]
 
-modulate = Color( 0.605469, 0.605469, 0.605469, 1 )
 position = Vector2( -625, 0 )
 scale = Vector2( 25, 25 )
 texture = ExtResource( 4 )
@@ -477,7 +471,6 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 [node name="stone_bg_sw" type="Sprite" parent="game_area/bg_stones" index="8"]
 
-modulate = Color( 0.605469, 0.605469, 0.605469, 1 )
 position = Vector2( -625, 625 )
 scale = Vector2( 25, 25 )
 texture = ExtResource( 4 )
@@ -494,6 +487,8 @@ position = Vector2( 250, 250 )
 script = ExtResource( 8 )
 width = 5
 height = 5
+speed = 20
+input_wait = 0.05
 
 [connection signal="pressed" from="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2/reset_view_button" to="game_area/Camera2D" method="_on_reset_view_button_pressed"]
 

@@ -3,20 +3,24 @@
 [ext_resource path="res://assets/textures/cell25x.png" type="Texture" id=1]
 [ext_resource path="res://assets/tilemaps/scicr_25x.tres" type="TileSet" id=2]
 
-[node name="player_cell" type="Node2D" index="0"]
+[node name="player_cell" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="draw" type="Node2D" parent="." index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="draw" index="0"]
 
 texture = ExtResource( 1 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 
-[node name="TileMap" type="TileMap" parent="." index="1"]
+[node name="TileMap" type="TileMap" parent="draw" index="1"]
 
 mode = 0
 tile_set = ExtResource( 2 )
@@ -37,9 +41,18 @@ format = 1
 tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Cell" ]
 
-[node name="cellv_test_pos" type="Position2D" parent="." index="2"]
+[node name="cellv_test_pos" type="Position2D" parent="." index="1"]
 
 position = Vector2( 12.5, 12.5 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="movement" type="Tween" parent="." index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 
