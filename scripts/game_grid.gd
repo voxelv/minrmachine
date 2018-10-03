@@ -79,18 +79,14 @@ func _check_obj_can_move_dir(grid_object, dir):
 		utl.DIR_SE: Vector2(grid_object.width, grid_object.height),
 		}
 	if dir in cardinal_lookup_bounds:
-		print(utl.DIRECTION.keys()[dir])
 		if _check_can_move_section(start_coord, cardinal_lookup_bounds[dir]):
 			dir_to_move = dir
 	elif dir in diagonal_lookup_dirs:
 		var d0 = diagonal_lookup_dirs[dir][0]
 		var d1 = diagonal_lookup_dirs[dir][1]
-		print(utl.DIRECTION.keys()[d0])
 		var can_move_0 = _check_can_move_section(start_coord, cardinal_lookup_bounds[d0])
-		print(utl.DIRECTION.keys()[d1])
 		var can_move_1 = _check_can_move_section(start_coord, cardinal_lookup_bounds[d1])
 		var corner = diagonal_lookup_corners[dir]
-		print("check: ", start_coord + corner)
 		var can_move_corner = tilemap.get_cell(start_coord.x + corner.x, start_coord.y + corner.y) == utl.GRID_NONE
 		if can_move_0 and can_move_1 and can_move_corner:
 			dir_to_move = dir
@@ -105,7 +101,6 @@ func _check_can_move_section(start, params):
 	var coord = Vector2(params[0], params[2])
 	while coord.x <= params[1]:
 		while coord.y <= params[3]:
-			print("check: ", params, " ", coord + start)
 			if tilemap.get_cell(start.x + coord.x, start.y + coord.y) != utl.GRID_NONE:
 				can_move = false
 			coord.y += 1
