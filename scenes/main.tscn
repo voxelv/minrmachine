@@ -9,10 +9,11 @@
 [ext_resource path="res://scenes/cell.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/player_cell.gd" type="Script" id=8]
 
-[node name="main" type="Node" index="0"]
+[node name="main" type="Node"]
 
 [node name="ui_layer" type="CanvasLayer" parent="." index="0"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
