@@ -12,7 +12,7 @@ onready var draw = get_node("draw")
 
 export(int) var width = 1
 export(int) var height = 1
-export(float) var speed = 1
+export(float) var speed = 0.5
 
 func _ready():
 	get_parent().register_grid_object(self)
