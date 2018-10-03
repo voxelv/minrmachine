@@ -12,7 +12,7 @@ onready var draw = get_node("draw")
 
 export(int) var width = 1
 export(int) var height = 1
-export(float) var speed = 20
+export(float) var speed = 1
 
 func _ready():
 	get_parent().register_grid_object(self)
@@ -25,10 +25,12 @@ func _move_callback():
 	moving = false
 
 func move(direction):
-	var prev_pos = position
 	if not moving:
-		moving = true
-		position = grid.request_move(self, direction)
-#		$draw.position = prev_pos
-		movement.interpolate_callback(self, speed, "_move_callback")
-#		movement.interpolate_property(draw, "transform/position", prev_pos, position, speed, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		var moved_dir = grid.request_move(self, direction)
+		if moved_dir != utl.DIR_NONE and moved_dir != utl.DIR_INV:
+			moving = true
+			var draw_pos = grid.map_to_world(utl.dir_to_offset(utl.dir_inv(moved_dir)))
+			draw.position = draw_pos
+			movement.interpolate_property(draw, "position", draw_pos, Vector2(0, 0), speed, Tween.TRANS_LINEAR, Tween.EASE_IN)
+			movement.interpolate_callback(self, speed, "_move_callback")
+			movement.start()
