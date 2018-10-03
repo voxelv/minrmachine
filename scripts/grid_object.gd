@@ -25,6 +25,8 @@ func _move_callback():
 	moving = false
 
 func move(direction):
+	# Returns whether the request was accepted
+	var request_accepted = false
 	if not moving:
 		var moved_dir = grid.request_move(self, direction)
 		if moved_dir != utl.DIR_NONE and moved_dir != utl.DIR_INV:
@@ -34,3 +36,5 @@ func move(direction):
 			movement.interpolate_property(draw, "position", draw_pos, Vector2(0, 0), speed, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			movement.interpolate_callback(self, speed, "_move_callback")
 			movement.start()
+		request_accepted = true
+	return(request_accepted)
