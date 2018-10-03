@@ -35,12 +35,19 @@ func request_move(grid_object, direction):
 	var coord = world_to_map(grid_object.get_cellv_test_pos())
 	
 	# Check if out-of-bounds
-	if     (direction == utl.DIR_W and (coord.x - 1) < 0) \
-		or (direction == utl.DIR_N and (coord.y - 1) < 0) \
-		or (direction == utl.DIR_E and (coord.x + grid_object.width) >= utl.TILES_PER_SIDE) \
-		or (direction == utl.DIR_S and (coord.y + grid_object.height) >= utl.TILES_PER_SIDE):
+	var oob_n = (coord.y - 1) < 0
+	var oob_e = (coord.x + grid_object.width) >= utl.TILES_PER_SIDE
+	var oob_s = (coord.y + grid_object.height) >= utl.TILES_PER_SIDE
+	var oob_w = (coord.x - 1) < 0
+	if     (direction == utl.DIR_N and oob_n) \
+		or (direction == utl.DIR_E and oob_e) \
+		or (direction == utl.DIR_S and oob_s) \
+		or (direction == utl.DIR_W and oob_w) \
+		or (direction == utl.DIR_NE and (oob_n or oob_e)) \
+		or (direction == utl.DIR_NW and (oob_n or oob_w)) \
+		or (direction == utl.DIR_SW and (oob_s or oob_w)) \
+		or (direction == utl.DIR_SE and (oob_s or oob_e)):
 			dir_to_move = utl.DIR_NONE
-		#TODO: check diagonals...
 	else:
 		# Check if can move in-bounds
 		dir_to_move = _check_obj_can_move_dir(grid_object, direction)
