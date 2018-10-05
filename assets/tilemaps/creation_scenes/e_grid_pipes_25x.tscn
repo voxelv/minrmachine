@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/textures/e_grid/e_grid_pipes_all3x3.png" type="Texture" id=1]
 
-[node name="e_grid_pipes" type="Node2D" index="0"]
+[node name="e_grid_pipes" type="Node2D"]
 
 [node name="pipes" type="Sprite" parent="." index="0"]
 
