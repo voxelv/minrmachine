@@ -497,7 +497,6 @@ position = Vector2( 250, 250 )
 script = ExtResource( 8 )
 width = 5
 height = 5
-speed = 0.5
 input_wait = 0.05
 
 [connection signal="pressed" from="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2/reset_view_button" to="game_area/Camera2D" method="_on_reset_view_button_pressed"]

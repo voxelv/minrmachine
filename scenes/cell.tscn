@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/textures/cell25x.png" type="Texture" id=1]
-[ext_resource path="res://assets/tilemaps/e_grid_pipes_25x.tres" type="TileSet" id=2]
+[ext_resource path="res://scripts/cell.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/cell25x.png" type="Texture" id=2]
+[ext_resource path="res://assets/tilemaps/e_grid_pipes_25x.tres" type="TileSet" id=3]
 
-[node name="player_cell" type="Node2D" index="0"]
+[node name="cell" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
+width = 1
+height = 1
+speed = 0.5
 
 [node name="draw" type="Node2D" parent="." index="0"]
 
@@ -16,15 +21,15 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="draw" index="0"]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 
-[node name="e_grid" type="TileMap" parent="draw" index="1"]
+[node name="e_grid_pipes" type="TileMap" parent="draw" index="1"]
 
 scale = Vector2( 1, 1 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 25, 25 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -39,7 +44,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 3, 8, 0, 65536, 13, 0, 65538, 1, 0, 65539, 15, 0, 65540, 4, 0, 131072, 11, 0, 131073, 14, 0, 131075, 2, 0, 196608, 7, 0, 196611, 9, 0, 196612, 12, 0, 262147, 3, 0, 262148, 6, 0 )
+tile_data = PoolIntArray( 0, 0, 8, 1, 0, 6, 2, 0, 196610, 3, 0, 196610, 4, 0, 3, 65536, 0, 196616, 65537, 0, 131079, 65540, 0, 65536, 131073, 0, 65536, 131075, 0, 8, 131076, 0, 65543, 196609, 0, 131073, 196610, 0, 5, 196611, 0, 65545, 196612, 0, 196619, 262146, 0, 196616, 262147, 0, 196619 )
 _sections_unfolded = [ "Cell" ]
 
 [node name="organelles" type="TileMap" parent="draw" index="2"]

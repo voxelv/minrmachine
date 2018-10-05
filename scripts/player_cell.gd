@@ -1,4 +1,4 @@
-extends 'grid_object.gd'
+extends 'cell.gd'
 
 signal player_moved
 
