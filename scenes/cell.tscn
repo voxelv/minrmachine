@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/cell.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/cell25x.png" type="Texture" id=2]
-[ext_resource path="res://assets/tilemaps/e_grid_pipes_25x.tres" type="TileSet" id=3]
+[ext_resource path="res://assets/tilemaps/e_grid_25x.tres" type="TileSet" id=3]
 [ext_resource path="res://assets/tilemaps/organelles_25x.tres" type="TileSet" id=4]
 
 [node name="cell" type="Node2D" index="0"]
@@ -29,7 +29,6 @@ _sections_unfolded = [ "Offset" ]
 [node name="e_grid" type="TileMap" parent="draw" index="1"]
 
 position = Vector2( 1, 0 )
-scale = Vector2( 1, 1 )
 mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 25, 25 )
@@ -49,9 +48,8 @@ format = 1
 tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Cell" ]
 
-[node name="organelles" type="TileMap" parent="draw" index="2"]
+[node name="o_grid" type="TileMap" parent="draw" index="2"]
 
-modulate = Color( 1, 1, 1, 0.567216 )
 mode = 0
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 25, 25 )

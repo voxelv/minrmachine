@@ -158,4 +158,5 @@ func _window_size_changed():
 	constrain_offset()
 
 func _on_player_moved():
-	camera_state = SLEW_TO_PLAYER
+	if camera_state != CAMERA_STATE.FOLLOW_PLAYER:
+		camera_state = SLEW_TO_PLAYER
