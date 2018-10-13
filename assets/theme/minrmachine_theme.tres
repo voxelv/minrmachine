@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=2]
+
+[ext_resource path="res://assets/font/bit5x5_10px.fnt" type="BitmapFont" id=1]
+
+[resource]
+
+default_font = ExtResource( 1 )
+HBoxContainer/constants/separation = 4
+_sections_unfolded = [ "HBoxContainer", "HBoxContainer/constants", "Label", "Label/fonts" ]
+

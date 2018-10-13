@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://assets/font/bit5x5_10px.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://assets/theme/minrmachine_theme.tres" type="Theme" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://scripts/ZoomLabel.gd" type="Script" id=3]
 [ext_resource path="res://scenes/ui_widgets/tile_container.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Camera2D.gd" type="Script" id=5]
@@ -11,7 +11,7 @@
 [ext_resource path="res://scenes/cell.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/player_cell.gd" type="Script" id=10]
 
-[node name="main" type="Node"]
+[node name="main" type="Node" index="0"]
 
 [node name="ui_layer" type="CanvasLayer" parent="." index="0"]
 
@@ -33,9 +33,10 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 1 )
 custom_constants/separation = 0
 alignment = 0
-_sections_unfolded = [ "Mouse", "Size Flags", "custom_constants" ]
+_sections_unfolded = [ "Theme", "custom_constants" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ui_layer/HBoxContainer" index="0"]
 
@@ -43,7 +44,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 876.0
+margin_right = 869.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -60,7 +61,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 876.0
+margin_right = 869.0
 margin_bottom = 522.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -77,9 +78,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 438.0
+margin_left = 434.0
 margin_top = 261.0
-margin_right = 438.0
+margin_right = 434.0
 margin_bottom = 261.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -95,7 +96,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 526.0
-margin_right = 876.0
+margin_right = 869.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -115,7 +116,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 876.0
+margin_right = 869.0
 margin_bottom = 74.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -130,7 +131,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 876.0
+margin_right = 869.0
 margin_bottom = 74.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -152,7 +153,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 871.0
+margin_right = 864.0
 margin_bottom = 69.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -160,7 +161,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 stretch_mode = 0
 
 [node name="v_bar" type="MarginContainer" parent="ui_layer/HBoxContainer" index="1"]
@@ -169,7 +170,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 876.0
+margin_left = 869.0
 margin_right = 1024.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -190,7 +191,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 148.0
+margin_right = 155.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -205,7 +206,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 148.0
+margin_right = 155.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -227,7 +228,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 143.0
+margin_right = 150.0
 margin_bottom = 595.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -244,7 +245,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 138.0
+margin_right = 145.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -260,7 +261,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 21.0
+margin_right = 24.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -283,8 +284,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 25.0
-margin_right = 89.0
+margin_left = 28.0
+margin_right = 92.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -309,7 +310,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 stretch_mode = 0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer" index="1"]
@@ -319,7 +320,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 68.0
-margin_right = 138.0
+margin_right = 145.0
 margin_bottom = 84.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -344,7 +345,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -352,6 +352,7 @@ group = null
 text = "RESET"
 flat = false
 align = 1
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="zoom_label" type="Label" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
 
@@ -361,7 +362,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 76.0
 margin_top = 3.0
-margin_right = 138.5
+margin_right = 145.0
 margin_bottom = 13.0
 rect_min_size = Vector2( 62.5, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -370,7 +371,6 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
 text = "ZOOM"
 align = 1
 valign = 1
@@ -389,8 +389,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 88.0
-margin_right = 138.0
-margin_bottom = 189.0
+margin_right = 145.0
+margin_bottom = 231.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -401,20 +401,20 @@ alignment = 0
 
 [node name="tile_container" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="0" instance=ExtResource( 4 )]
 
-margin_right = 138.0
+margin_right = 145.0
 
 [node name="tile_container2" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="1" instance=ExtResource( 4 )]
 
-margin_top = 35.0
-margin_right = 138.0
-margin_bottom = 66.0
+margin_top = 49.0
+margin_right = 145.0
+margin_bottom = 94.0
 tile_name = "TEST2"
 
 [node name="tile_container3" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="2" instance=ExtResource( 4 )]
 
-margin_top = 70.0
-margin_right = 138.0
-margin_bottom = 101.0
+margin_top = 98.0
+margin_right = 145.0
+margin_bottom = 143.0
 tile_name = "TEST3"
 
 [node name="game_area" type="Node" parent="." index="1"]

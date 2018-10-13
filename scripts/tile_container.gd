@@ -3,10 +3,10 @@ extends Control
 export(String) var tile_name = "TEST"
 
 func _ready():
-	$MarginContainer/HBoxContainer/VBoxContainer/name.text = tile_name
+	$HBoxContainer/VBoxContainer/name.text = tile_name
 
 func set_selected(selected):
-	$MarginContainer/HBoxContainer/select_bg.visible = selected
+	$HBoxContainer/VBoxContainer/count.visible = selected
 
 func _gui_input(event):
 	if event is InputEventMouseButton:
