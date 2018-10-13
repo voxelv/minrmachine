@@ -2,11 +2,15 @@ extends Control
 
 export(String) var tile_name = "TEST"
 
-func _ready():
-	$HBoxContainer/VBoxContainer/name.text = tile_name
+onready var name_label = find_node("name")
+onready var count_label = find_node("count")
 
-func set_selected(selected):
-	$HBoxContainer/VBoxContainer/count.visible = selected
+func _ready():
+	name_label.text = tile_name
+	set_count(hash(tile_name))
+
+func set_count(num):
+	count_label.text = str(num)
 
 func _gui_input(event):
 	if event is InputEventMouseButton:

@@ -6,5 +6,6 @@
 
 default_font = ExtResource( 1 )
 HBoxContainer/constants/separation = 4
-_sections_unfolded = [ "HBoxContainer", "HBoxContainer/constants", "Label", "Label/fonts" ]
+MarginContainer/constants/margin_left = 0
+_sections_unfolded = [ "HBoxContainer", "HBoxContainer/constants", "Label", "Label/fonts", "MarginContainer", "MarginContainer/constants" ]
 
