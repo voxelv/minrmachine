@@ -28,7 +28,6 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="e_grid" type="TileMap" parent="draw" index="1"]
 
-position = Vector2( 1, 0 )
 mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 25, 25 )
@@ -46,7 +45,7 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray(  )
-_sections_unfolded = [ "Cell" ]
+_sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="o_grid" type="TileMap" parent="draw" index="2"]
 

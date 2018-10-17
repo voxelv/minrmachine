@@ -3,9 +3,9 @@
 [ext_resource path="res://assets/theme/minrmachine_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/tile_container.gd" type="Script" id=2]
 [ext_resource path="res://assets/textures/ui/blue_border_9p.png" type="Texture" id=3]
-[ext_resource path="res://assets/font/bit5x5_5px.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://assets/font/bit5x5_7px.fnt" type="BitmapFont" id=4]
 
-[node name="tile_container" type="MarginContainer" index="0"]
+[node name="tile_container" type="MarginContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -30,8 +30,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 543.0
-margin_bottom = 40.0
+margin_right = 322.0
+margin_bottom = 44.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -52,8 +52,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 543.0
-margin_bottom = 40.0
+margin_right = 322.0
+margin_bottom = 44.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -74,8 +74,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 539.0
-margin_bottom = 36.0
+margin_right = 318.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -85,14 +85,32 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Mouse" ]
 
-[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer" index="0"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 31.0
-margin_bottom = 32.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Mouse" ]
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 2.0
+margin_right = 31.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 31, 31 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -110,7 +128,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 35.0
 margin_right = 285.0
-margin_bottom = 32.0
+margin_bottom = 36.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -126,9 +144,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 6.0
+margin_top = 7.0
 margin_right = 250.0
-margin_bottom = 16.0
+margin_bottom = 17.0
 rect_min_size = Vector2( 250, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -137,11 +155,11 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 text = "WOW NAME"
-clip_text = true
+autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Mouse", "Rect" ]
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="count" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
 
@@ -149,9 +167,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 20.0
+margin_top = 21.0
 margin_right = 250.0
-margin_bottom = 25.0
+margin_bottom = 28.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
