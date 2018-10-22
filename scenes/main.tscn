@@ -1,17 +1,16 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/theme/minrmachine_theme.tres" type="Theme" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://assets/font/bit5x5_7px.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://scripts/ZoomLabel.gd" type="Script" id=4]
 [ext_resource path="res://scripts/inventory.gd" type="Script" id=5]
-[ext_resource path="res://scenes/ui_widgets/tile_container.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=7]
-[ext_resource path="res://assets/textures/stone25x.png" type="Texture" id=8]
-[ext_resource path="res://scenes/game_grid.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scripts/game_grid.gd" type="Script" id=10]
-[ext_resource path="res://scenes/cell.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scripts/player_cell.gd" type="Script" id=12]
+[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=6]
+[ext_resource path="res://assets/textures/stone25x.png" type="Texture" id=7]
+[ext_resource path="res://scenes/game_grid.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/game_grid.gd" type="Script" id=9]
+[ext_resource path="res://scenes/cell.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/player_cell.gd" type="Script" id=11]
 
 [node name="main" type="Node" index="0"]
 
@@ -402,26 +401,6 @@ size_flags_vertical = 1
 alignment = 0
 script = ExtResource( 5 )
 
-[node name="tile_container" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="0" instance=ExtResource( 6 )]
-
-margin_right = 293.0
-margin_bottom = 39.0
-tile_name = "TEST LONG NAME AND STUFF AND THINGS A LOT MORE THAN NORMAL"
-
-[node name="tile_container2" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="1" instance=ExtResource( 6 )]
-
-margin_top = 43.0
-margin_right = 293.0
-margin_bottom = 82.0
-tile_name = "TEST2"
-
-[node name="tile_container3" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="2" instance=ExtResource( 6 )]
-
-margin_top = 86.0
-margin_right = 293.0
-margin_bottom = 125.0
-tile_name = "TEST3"
-
 [node name="game_area" type="Node" parent="." index="1"]
 
 [node name="Camera2D" type="Camera2D" parent="game_area" index="0"]
@@ -448,7 +427,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
 [node name="movement_slew" type="Tween" parent="game_area/Camera2D" index="0"]
 
@@ -468,7 +447,7 @@ _sections_unfolded = [ "Visibility" ]
 [node name="stone_bg_c" type="Sprite" parent="game_area/bg_stones" index="0"]
 
 scale = Vector2( 25, 25 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
@@ -476,7 +455,7 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 position = Vector2( 0, -625 )
 scale = Vector2( 25, 25 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
@@ -484,7 +463,7 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 position = Vector2( -625, -625 )
 scale = Vector2( 25, 25 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
@@ -492,7 +471,7 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 position = Vector2( 625, 0 )
 scale = Vector2( 25, 25 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
@@ -500,7 +479,7 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 position = Vector2( 625, -625 )
 scale = Vector2( 25, 25 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
@@ -508,7 +487,7 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 position = Vector2( 0, 625 )
 scale = Vector2( 25, 25 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
@@ -516,7 +495,7 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 position = Vector2( 625, 625 )
 scale = Vector2( 25, 25 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
@@ -524,7 +503,7 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 position = Vector2( -625, 0 )
 scale = Vector2( 25, 25 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
@@ -532,18 +511,18 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 position = Vector2( -625, 625 )
 scale = Vector2( 25, 25 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
-[node name="game_grid" parent="game_area" index="2" instance=ExtResource( 9 )]
+[node name="game_grid" parent="game_area" index="2" instance=ExtResource( 8 )]
 
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 
-[node name="player_cell" parent="game_area/game_grid" index="1" instance=ExtResource( 11 )]
+[node name="player_cell" parent="game_area/game_grid" index="1" instance=ExtResource( 10 )]
 
 position = Vector2( 250, 250 )
-script = ExtResource( 12 )
+script = ExtResource( 11 )
 width = 5
 height = 5
 speed = 0.1

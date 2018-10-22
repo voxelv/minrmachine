@@ -19,4 +19,5 @@ func _gui_input(event):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			print("Pressed: ", tile_name)
-			get_parent().remove_child(self)
+			get_parent().inv_clicked(get_position_in_parent())
+#			get_parent().remove_child(self)
