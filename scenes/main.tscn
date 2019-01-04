@@ -1,16 +1,18 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/theme/minrmachine_theme.tres" type="Theme" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://assets/font/bit5x5_7px.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://scripts/ZoomLabel.gd" type="Script" id=4]
 [ext_resource path="res://scripts/inventory.gd" type="Script" id=5]
-[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=6]
-[ext_resource path="res://assets/textures/stone25x.png" type="Texture" id=7]
-[ext_resource path="res://scenes/game_grid.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scripts/game_grid.gd" type="Script" id=9]
-[ext_resource path="res://scenes/cell.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scripts/player_cell.gd" type="Script" id=11]
+[ext_resource path="res://scenes/ui_widgets/tile_container.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=7]
+[ext_resource path="res://assets/textures/stone25x.png" type="Texture" id=8]
+[ext_resource path="res://assets/textures/bg_outline.png" type="Texture" id=9]
+[ext_resource path="res://scenes/game_grid.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/game_grid.gd" type="Script" id=11]
+[ext_resource path="res://scenes/cell.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/player_cell.gd" type="Script" id=13]
 
 [node name="main" type="Node" index="0"]
 
@@ -401,6 +403,26 @@ size_flags_vertical = 1
 alignment = 0
 script = ExtResource( 5 )
 
+[node name="tile_container" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="0" instance=ExtResource( 6 )]
+
+margin_right = 293.0
+margin_bottom = 39.0
+tile_name = "TEST LONG NAME AND STUFF AND THINGS A LOT MORE THAN NORMAL"
+
+[node name="tile_container2" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="1" instance=ExtResource( 6 )]
+
+margin_top = 43.0
+margin_right = 293.0
+margin_bottom = 82.0
+tile_name = "TEST2"
+
+[node name="tile_container3" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="2" instance=ExtResource( 6 )]
+
+margin_top = 86.0
+margin_right = 293.0
+margin_bottom = 125.0
+tile_name = "TEST3"
+
 [node name="game_area" type="Node" parent="." index="1"]
 
 [node name="Camera2D" type="Camera2D" parent="game_area" index="0"]
@@ -427,7 +449,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="movement_slew" type="Tween" parent="game_area/Camera2D" index="0"]
 
@@ -441,88 +463,2049 @@ playback/speed = 1.0
 [node name="bg_stones" type="Node2D" parent="game_area" index="1"]
 
 editor/display_folded = true
-modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="stone_bg_c" type="Sprite" parent="game_area/bg_stones" index="0"]
+[node name="stone_bg" type="Sprite" parent="game_area/bg_stones" index="0"]
 
-scale = Vector2( 25, 25 )
-texture = ExtResource( 7 )
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
-[node name="stone_bg_n" type="Sprite" parent="game_area/bg_stones" index="1"]
+[node name="stone_bg27" type="Sprite" parent="game_area/bg_stones" index="1"]
 
-position = Vector2( 0, -625 )
-scale = Vector2( 25, 25 )
-texture = ExtResource( 7 )
-centered = false
-_sections_unfolded = [ "Offset", "Visibility" ]
-
-[node name="stone_bg_nw" type="Sprite" parent="game_area/bg_stones" index="2"]
-
-position = Vector2( -625, -625 )
-scale = Vector2( 25, 25 )
-texture = ExtResource( 7 )
-centered = false
-_sections_unfolded = [ "Offset", "Visibility" ]
-
-[node name="stone_bg_e" type="Sprite" parent="game_area/bg_stones" index="3"]
-
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
 position = Vector2( 625, 0 )
-scale = Vector2( 25, 25 )
-texture = ExtResource( 7 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
-[node name="stone_bg_ne" type="Sprite" parent="game_area/bg_stones" index="4"]
+[node name="stone_bg65" type="Sprite" parent="game_area/bg_stones" index="2"]
 
-position = Vector2( 625, -625 )
-scale = Vector2( 25, 25 )
-texture = ExtResource( 7 )
-centered = false
-_sections_unfolded = [ "Offset", "Visibility" ]
-
-[node name="stone_bg_s" type="Sprite" parent="game_area/bg_stones" index="5"]
-
-position = Vector2( 0, 625 )
-scale = Vector2( 25, 25 )
-texture = ExtResource( 7 )
-centered = false
-_sections_unfolded = [ "Offset", "Visibility" ]
-
-[node name="stone_bg_se" type="Sprite" parent="game_area/bg_stones" index="6"]
-
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
 position = Vector2( 625, 625 )
-scale = Vector2( 25, 25 )
-texture = ExtResource( 7 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
-[node name="stone_bg_w" type="Sprite" parent="game_area/bg_stones" index="7"]
+[node name="stone_bg82" type="Sprite" parent="game_area/bg_stones" index="3"]
 
-position = Vector2( -625, 0 )
-scale = Vector2( 25, 25 )
-texture = ExtResource( 7 )
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 0, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
-[node name="stone_bg_sw" type="Sprite" parent="game_area/bg_stones" index="8"]
+[node name="stone_bg123" type="Sprite" parent="game_area/bg_stones" index="4"]
 
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
 position = Vector2( -625, 625 )
-scale = Vector2( 25, 25 )
-texture = ExtResource( 7 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility" ]
 
-[node name="game_grid" parent="game_area" index="2" instance=ExtResource( 8 )]
+[node name="stone_bg144" type="Sprite" parent="game_area/bg_stones" index="5"]
 
-script = ExtResource( 9 )
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
 
-[node name="player_cell" parent="game_area/game_grid" index="1" instance=ExtResource( 10 )]
+[node name="stone_bg162" type="Sprite" parent="game_area/bg_stones" index="6"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg196" type="Sprite" parent="game_area/bg_stones" index="7"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 6.10352e-005, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg216" type="Sprite" parent="game_area/bg_stones" index="8"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg6" type="Sprite" parent="game_area/bg_stones" index="9"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 0, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg49" type="Sprite" parent="game_area/bg_stones" index="10"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg75" type="Sprite" parent="game_area/bg_stones" index="11"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg79" type="Sprite" parent="game_area/bg_stones" index="12"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 0, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg104" type="Sprite" parent="game_area/bg_stones" index="13"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg136" type="Sprite" parent="game_area/bg_stones" index="14"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg154" type="Sprite" parent="game_area/bg_stones" index="15"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg195" type="Sprite" parent="game_area/bg_stones" index="16"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 6.10352e-005, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg215" type="Sprite" parent="game_area/bg_stones" index="17"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg14" type="Sprite" parent="game_area/bg_stones" index="18"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 0, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg48" type="Sprite" parent="game_area/bg_stones" index="19"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg73" type="Sprite" parent="game_area/bg_stones" index="20"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg76" type="Sprite" parent="game_area/bg_stones" index="21"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -6.10352e-005, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg103" type="Sprite" parent="game_area/bg_stones" index="22"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg133" type="Sprite" parent="game_area/bg_stones" index="23"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg159" type="Sprite" parent="game_area/bg_stones" index="24"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg183" type="Sprite" parent="game_area/bg_stones" index="25"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 6.10352e-005, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg205" type="Sprite" parent="game_area/bg_stones" index="26"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg20" type="Sprite" parent="game_area/bg_stones" index="27"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 0, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg32" type="Sprite" parent="game_area/bg_stones" index="28"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg61" type="Sprite" parent="game_area/bg_stones" index="29"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg92" type="Sprite" parent="game_area/bg_stones" index="30"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -6.10352e-005, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg113" type="Sprite" parent="game_area/bg_stones" index="31"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg138" type="Sprite" parent="game_area/bg_stones" index="32"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg171" type="Sprite" parent="game_area/bg_stones" index="33"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg190" type="Sprite" parent="game_area/bg_stones" index="34"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 6.10352e-005, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg218" type="Sprite" parent="game_area/bg_stones" index="35"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg23" type="Sprite" parent="game_area/bg_stones" index="36"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 0, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg31" type="Sprite" parent="game_area/bg_stones" index="37"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg58" type="Sprite" parent="game_area/bg_stones" index="38"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg100" type="Sprite" parent="game_area/bg_stones" index="39"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -6.10352e-005, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg106" type="Sprite" parent="game_area/bg_stones" index="40"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg129" type="Sprite" parent="game_area/bg_stones" index="41"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg167" type="Sprite" parent="game_area/bg_stones" index="42"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -625, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg194" type="Sprite" parent="game_area/bg_stones" index="43"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 6.10352e-005, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg214" type="Sprite" parent="game_area/bg_stones" index="44"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 625, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg2" type="Sprite" parent="game_area/bg_stones" index="45"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg41" type="Sprite" parent="game_area/bg_stones" index="46"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg66" type="Sprite" parent="game_area/bg_stones" index="47"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg86" type="Sprite" parent="game_area/bg_stones" index="48"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg110" type="Sprite" parent="game_area/bg_stones" index="49"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg134" type="Sprite" parent="game_area/bg_stones" index="50"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg157" type="Sprite" parent="game_area/bg_stones" index="51"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg188" type="Sprite" parent="game_area/bg_stones" index="52"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg225" type="Sprite" parent="game_area/bg_stones" index="53"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg8" type="Sprite" parent="game_area/bg_stones" index="54"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg38" type="Sprite" parent="game_area/bg_stones" index="55"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg63" type="Sprite" parent="game_area/bg_stones" index="56"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg88" type="Sprite" parent="game_area/bg_stones" index="57"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg112" type="Sprite" parent="game_area/bg_stones" index="58"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg142" type="Sprite" parent="game_area/bg_stones" index="59"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg160" type="Sprite" parent="game_area/bg_stones" index="60"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg191" type="Sprite" parent="game_area/bg_stones" index="61"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg223" type="Sprite" parent="game_area/bg_stones" index="62"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg11" type="Sprite" parent="game_area/bg_stones" index="63"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg42" type="Sprite" parent="game_area/bg_stones" index="64"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg52" type="Sprite" parent="game_area/bg_stones" index="65"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg99" type="Sprite" parent="game_area/bg_stones" index="66"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg118" type="Sprite" parent="game_area/bg_stones" index="67"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg132" type="Sprite" parent="game_area/bg_stones" index="68"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg164" type="Sprite" parent="game_area/bg_stones" index="69"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg192" type="Sprite" parent="game_area/bg_stones" index="70"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg219" type="Sprite" parent="game_area/bg_stones" index="71"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg18" type="Sprite" parent="game_area/bg_stones" index="72"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg26" type="Sprite" parent="game_area/bg_stones" index="73"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg56" type="Sprite" parent="game_area/bg_stones" index="74"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg97" type="Sprite" parent="game_area/bg_stones" index="75"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg121" type="Sprite" parent="game_area/bg_stones" index="76"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg148" type="Sprite" parent="game_area/bg_stones" index="77"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg174" type="Sprite" parent="game_area/bg_stones" index="78"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg178" type="Sprite" parent="game_area/bg_stones" index="79"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg210" type="Sprite" parent="game_area/bg_stones" index="80"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg21" type="Sprite" parent="game_area/bg_stones" index="81"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg29" type="Sprite" parent="game_area/bg_stones" index="82"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg57" type="Sprite" parent="game_area/bg_stones" index="83"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg89" type="Sprite" parent="game_area/bg_stones" index="84"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg114" type="Sprite" parent="game_area/bg_stones" index="85"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg127" type="Sprite" parent="game_area/bg_stones" index="86"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg152" type="Sprite" parent="game_area/bg_stones" index="87"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -500, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg199" type="Sprite" parent="game_area/bg_stones" index="88"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 125, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg212" type="Sprite" parent="game_area/bg_stones" index="89"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 750, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg3" type="Sprite" parent="game_area/bg_stones" index="90"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg44" type="Sprite" parent="game_area/bg_stones" index="91"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg69" type="Sprite" parent="game_area/bg_stones" index="92"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg85" type="Sprite" parent="game_area/bg_stones" index="93"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg108" type="Sprite" parent="game_area/bg_stones" index="94"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg126" type="Sprite" parent="game_area/bg_stones" index="95"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg151" type="Sprite" parent="game_area/bg_stones" index="96"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg179" type="Sprite" parent="game_area/bg_stones" index="97"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg203" type="Sprite" parent="game_area/bg_stones" index="98"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg9" type="Sprite" parent="game_area/bg_stones" index="99"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg43" type="Sprite" parent="game_area/bg_stones" index="100"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg53" type="Sprite" parent="game_area/bg_stones" index="101"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg96" type="Sprite" parent="game_area/bg_stones" index="102"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg117" type="Sprite" parent="game_area/bg_stones" index="103"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg130" type="Sprite" parent="game_area/bg_stones" index="104"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg169" type="Sprite" parent="game_area/bg_stones" index="105"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg185" type="Sprite" parent="game_area/bg_stones" index="106"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg206" type="Sprite" parent="game_area/bg_stones" index="107"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg12" type="Sprite" parent="game_area/bg_stones" index="108"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg47" type="Sprite" parent="game_area/bg_stones" index="109"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg72" type="Sprite" parent="game_area/bg_stones" index="110"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg77" type="Sprite" parent="game_area/bg_stones" index="111"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg105" type="Sprite" parent="game_area/bg_stones" index="112"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg131" type="Sprite" parent="game_area/bg_stones" index="113"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg170" type="Sprite" parent="game_area/bg_stones" index="114"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg186" type="Sprite" parent="game_area/bg_stones" index="115"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg207" type="Sprite" parent="game_area/bg_stones" index="116"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg19" type="Sprite" parent="game_area/bg_stones" index="117"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg30" type="Sprite" parent="game_area/bg_stones" index="118"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg67" type="Sprite" parent="game_area/bg_stones" index="119"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg84" type="Sprite" parent="game_area/bg_stones" index="120"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg107" type="Sprite" parent="game_area/bg_stones" index="121"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg139" type="Sprite" parent="game_area/bg_stones" index="122"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg153" type="Sprite" parent="game_area/bg_stones" index="123"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg176" type="Sprite" parent="game_area/bg_stones" index="124"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg201" type="Sprite" parent="game_area/bg_stones" index="125"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg22" type="Sprite" parent="game_area/bg_stones" index="126"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg36" type="Sprite" parent="game_area/bg_stones" index="127"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg51" type="Sprite" parent="game_area/bg_stones" index="128"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg98" type="Sprite" parent="game_area/bg_stones" index="129"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg122" type="Sprite" parent="game_area/bg_stones" index="130"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg150" type="Sprite" parent="game_area/bg_stones" index="131"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg175" type="Sprite" parent="game_area/bg_stones" index="132"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -375, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg189" type="Sprite" parent="game_area/bg_stones" index="133"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 250, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg217" type="Sprite" parent="game_area/bg_stones" index="134"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 875, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg4" type="Sprite" parent="game_area/bg_stones" index="135"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg40" type="Sprite" parent="game_area/bg_stones" index="136"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg68" type="Sprite" parent="game_area/bg_stones" index="137"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg87" type="Sprite" parent="game_area/bg_stones" index="138"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg111" type="Sprite" parent="game_area/bg_stones" index="139"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg141" type="Sprite" parent="game_area/bg_stones" index="140"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg156" type="Sprite" parent="game_area/bg_stones" index="141"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg184" type="Sprite" parent="game_area/bg_stones" index="142"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg209" type="Sprite" parent="game_area/bg_stones" index="143"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg7" type="Sprite" parent="game_area/bg_stones" index="144"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg50" type="Sprite" parent="game_area/bg_stones" index="145"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg71" type="Sprite" parent="game_area/bg_stones" index="146"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg81" type="Sprite" parent="game_area/bg_stones" index="147"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg124" type="Sprite" parent="game_area/bg_stones" index="148"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg147" type="Sprite" parent="game_area/bg_stones" index="149"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg173" type="Sprite" parent="game_area/bg_stones" index="150"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg180" type="Sprite" parent="game_area/bg_stones" index="151"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg211" type="Sprite" parent="game_area/bg_stones" index="152"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg15" type="Sprite" parent="game_area/bg_stones" index="153"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg28" type="Sprite" parent="game_area/bg_stones" index="154"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg60" type="Sprite" parent="game_area/bg_stones" index="155"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg91" type="Sprite" parent="game_area/bg_stones" index="156"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg109" type="Sprite" parent="game_area/bg_stones" index="157"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg140" type="Sprite" parent="game_area/bg_stones" index="158"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg155" type="Sprite" parent="game_area/bg_stones" index="159"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg181" type="Sprite" parent="game_area/bg_stones" index="160"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg204" type="Sprite" parent="game_area/bg_stones" index="161"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg16" type="Sprite" parent="game_area/bg_stones" index="162"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg34" type="Sprite" parent="game_area/bg_stones" index="163"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg55" type="Sprite" parent="game_area/bg_stones" index="164"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg94" type="Sprite" parent="game_area/bg_stones" index="165"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg116" type="Sprite" parent="game_area/bg_stones" index="166"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg128" type="Sprite" parent="game_area/bg_stones" index="167"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg161" type="Sprite" parent="game_area/bg_stones" index="168"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg187" type="Sprite" parent="game_area/bg_stones" index="169"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg224" type="Sprite" parent="game_area/bg_stones" index="170"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg24" type="Sprite" parent="game_area/bg_stones" index="171"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg33" type="Sprite" parent="game_area/bg_stones" index="172"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg54" type="Sprite" parent="game_area/bg_stones" index="173"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg93" type="Sprite" parent="game_area/bg_stones" index="174"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg115" type="Sprite" parent="game_area/bg_stones" index="175"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg135" type="Sprite" parent="game_area/bg_stones" index="176"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg168" type="Sprite" parent="game_area/bg_stones" index="177"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -250, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg198" type="Sprite" parent="game_area/bg_stones" index="178"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 375, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg222" type="Sprite" parent="game_area/bg_stones" index="179"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1000, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg5" type="Sprite" parent="game_area/bg_stones" index="180"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg45" type="Sprite" parent="game_area/bg_stones" index="181"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg70" type="Sprite" parent="game_area/bg_stones" index="182"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg80" type="Sprite" parent="game_area/bg_stones" index="183"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg101" type="Sprite" parent="game_area/bg_stones" index="184"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, 625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg137" type="Sprite" parent="game_area/bg_stones" index="185"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg166" type="Sprite" parent="game_area/bg_stones" index="186"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg177" type="Sprite" parent="game_area/bg_stones" index="187"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg202" type="Sprite" parent="game_area/bg_stones" index="188"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, -625 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg10" type="Sprite" parent="game_area/bg_stones" index="189"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg46" type="Sprite" parent="game_area/bg_stones" index="190"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg74" type="Sprite" parent="game_area/bg_stones" index="191"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg78" type="Sprite" parent="game_area/bg_stones" index="192"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg102" type="Sprite" parent="game_area/bg_stones" index="193"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, 750 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg143" type="Sprite" parent="game_area/bg_stones" index="194"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, 125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg158" type="Sprite" parent="game_area/bg_stones" index="195"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg182" type="Sprite" parent="game_area/bg_stones" index="196"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg208" type="Sprite" parent="game_area/bg_stones" index="197"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, -500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg13" type="Sprite" parent="game_area/bg_stones" index="198"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg39" type="Sprite" parent="game_area/bg_stones" index="199"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg64" type="Sprite" parent="game_area/bg_stones" index="200"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg83" type="Sprite" parent="game_area/bg_stones" index="201"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg125" type="Sprite" parent="game_area/bg_stones" index="202"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, 875 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg149" type="Sprite" parent="game_area/bg_stones" index="203"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg172" type="Sprite" parent="game_area/bg_stones" index="204"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg197" type="Sprite" parent="game_area/bg_stones" index="205"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg220" type="Sprite" parent="game_area/bg_stones" index="206"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, -375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg17" type="Sprite" parent="game_area/bg_stones" index="207"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg35" type="Sprite" parent="game_area/bg_stones" index="208"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg59" type="Sprite" parent="game_area/bg_stones" index="209"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg90" type="Sprite" parent="game_area/bg_stones" index="210"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg119" type="Sprite" parent="game_area/bg_stones" index="211"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, 1000 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg145" type="Sprite" parent="game_area/bg_stones" index="212"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, 375 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg163" type="Sprite" parent="game_area/bg_stones" index="213"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg200" type="Sprite" parent="game_area/bg_stones" index="214"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg221" type="Sprite" parent="game_area/bg_stones" index="215"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, -250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg25" type="Sprite" parent="game_area/bg_stones" index="216"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg37" type="Sprite" parent="game_area/bg_stones" index="217"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg62" type="Sprite" parent="game_area/bg_stones" index="218"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg95" type="Sprite" parent="game_area/bg_stones" index="219"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg120" type="Sprite" parent="game_area/bg_stones" index="220"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, 1125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg146" type="Sprite" parent="game_area/bg_stones" index="221"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg165" type="Sprite" parent="game_area/bg_stones" index="222"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( -125, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg193" type="Sprite" parent="game_area/bg_stones" index="223"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 500, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="stone_bg213" type="Sprite" parent="game_area/bg_stones" index="224"]
+
+self_modulate = Color( 0.488983, 0.498306, 0.574219, 1 )
+position = Vector2( 1125, -125 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="bg_outline" type="Sprite" parent="game_area/bg_stones" index="225"]
+
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -25, -25 )
+texture = ExtResource( 9 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="game_grid" parent="game_area" index="2" instance=ExtResource( 10 )]
+
+editor/display_folded = true
+script = ExtResource( 11 )
+
+[node name="player_cell" parent="game_area/game_grid" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( 250, 250 )
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 width = 5
 height = 5
 speed = 0.1

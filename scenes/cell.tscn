@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/tilemaps/e_grid_25x.tres" type="TileSet" id=3]
 [ext_resource path="res://assets/tilemaps/organelles_25x.tres" type="TileSet" id=4]
 
-[node name="cell" type="Node2D"]
+[node name="cell" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]

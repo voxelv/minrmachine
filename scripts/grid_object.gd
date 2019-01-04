@@ -1,7 +1,5 @@
 extends Node2D
 
-var type = utl.GRID_NONE
-
 var grid = null
 var cellv = null
 onready var cellv_test_pos = $cellv_test_pos.position
