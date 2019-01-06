@@ -9,6 +9,14 @@ var input_on = false
 func _ready():
 	pass
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT && event.pressed:
+			var pressed_coord = e_grid.world_to_map(get_local_mouse_position())
+			if _coord_in_cell(pressed_coord):
+				get_tree().set_input_as_handled()
+				print("Player Cell Pressed @ " + str(pressed_coord))
+
 func _process(delta):
 	var dir_pressed = any_move_input()
 
@@ -63,5 +71,4 @@ func get_center_pos():
 	result.x += (width * utl.CELL_SIZE_PIXELS) / 2.0
 	result.y += (height * utl.CELL_SIZE_PIXELS) / 2.0
 	return(result)
-
 

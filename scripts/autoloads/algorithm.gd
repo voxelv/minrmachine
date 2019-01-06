@@ -5,10 +5,6 @@ func fill_slots(fill, slots):
 	var n = len(slots)
 	
 	while true:
-		# base case: fill == 0
-		if fill == 0:
-			return({'fill': 0, 'slots': result_slots})
-		
 		# base case: fill < 0
 		if fill < 0:
 			return(null)
@@ -17,6 +13,10 @@ func fill_slots(fill, slots):
 		var result_slots = []
 		for i in range(len(slots)):
 			result_slots.append(0)
+		
+		# base case: fill == 0
+		if fill == 0:
+			return({'fill': 0, 'slots': result_slots})
 		
 		# base case: too much fill
 		var max_fill = 0
@@ -47,7 +47,7 @@ func fill_slots(fill, slots):
 			var space = slots[i] - result_slots[i]
 			if space == 0:
 				continue
-			if avg >= space_in_a:
+			if avg >= space:
 				n -= 1
 				result_slots[i] = slots[i]
 				rem += avg - space

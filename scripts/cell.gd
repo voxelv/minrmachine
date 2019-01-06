@@ -3,8 +3,6 @@ extends 'grid_object.gd'
 onready var o_grid = get_node("draw/o_grid")
 onready var e_grid = get_node("draw/e_grid")
 
-var networks = []
-
 func _ready():
 	pass
 
@@ -27,6 +25,7 @@ func add_organelle(vcoord, organelle):
 		o_grid.set_cell(vcoord.x, vcoord.y, organelle, false, false, false, Vector2(0, 0))
 		if organelle in utl.e_grid_organelles:
 			add_wire(vcoord)
+
 func del_organelle(vcoord):
 	if _coord_in_cell(vcoord):
 		var prev_organelle = o_grid.get_cell(vcoord.x, vcoord.y)
