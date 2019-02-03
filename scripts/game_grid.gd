@@ -39,15 +39,15 @@ func request_move(grid_object, direction):
 	var oob_e = (coord.x + grid_object.width) >= utl.TILES_PER_SIDE
 	var oob_s = (coord.y + grid_object.height) >= utl.TILES_PER_SIDE
 	var oob_w = (coord.x - 1) < 0
-	if     (direction == utl.DIR_N and oob_n) \
-		or (direction == utl.DIR_E and oob_e) \
-		or (direction == utl.DIR_S and oob_s) \
-		or (direction == utl.DIR_W and oob_w) \
-		or (direction == utl.DIR_NE and (oob_n or oob_e)) \
-		or (direction == utl.DIR_NW and (oob_n or oob_w)) \
-		or (direction == utl.DIR_SW and (oob_s or oob_w)) \
-		or (direction == utl.DIR_SE and (oob_s or oob_e)):
-			dir_to_move = utl.DIR_NONE
+	if     (direction == utl.DIRECTION.N and oob_n) \
+		or (direction == utl.DIRECTION.E and oob_e) \
+		or (direction == utl.DIRECTION.S and oob_s) \
+		or (direction == utl.DIRECTION.W and oob_w) \
+		or (direction == utl.DIRECTION.NE and (oob_n or oob_e)) \
+		or (direction == utl.DIRECTION.NW and (oob_n or oob_w)) \
+		or (direction == utl.DIRECTION.SW and (oob_s or oob_w)) \
+		or (direction == utl.DIRECTION.SE and (oob_s or oob_e)):
+			dir_to_move = utl.DIRECTION.NONE
 	else:
 		# Check if can move in-bounds
 		dir_to_move = _check_obj_can_move_dir(grid_object, direction)
@@ -58,25 +58,25 @@ func request_move(grid_object, direction):
 
 func _check_obj_can_move_dir(grid_object, dir):
 	var start_coord = world_to_map(grid_object.get_cellv_test_pos())
-	var dir_to_move = utl.DIR_NONE
+	var dir_to_move = utl.DIRECTION.NONE
 	var cardinal_lookup_bounds = {
 		# direction:          col_min,               col_max,            row_min,                row_max
-		utl.DIR_N: [                0, grid_object.width - 1,                 -1,                     -1 ],
-		utl.DIR_E: [grid_object.width,     grid_object.width,                  0, grid_object.height - 1 ],
-		utl.DIR_S: [                0, grid_object.width - 1, grid_object.height,     grid_object.height ],
-		utl.DIR_W: [               -1,                    -1,                  0, grid_object.height - 1 ],
+		utl.DIRECTION.N: [                0, grid_object.width - 1,                 -1,                     -1 ],
+		utl.DIRECTION.E: [grid_object.width,     grid_object.width,                  0, grid_object.height - 1 ],
+		utl.DIRECTION.S: [                0, grid_object.width - 1, grid_object.height,     grid_object.height ],
+		utl.DIRECTION.W: [               -1,                    -1,                  0, grid_object.height - 1 ],
 		}
 	var diagonal_lookup_dirs = {
-		utl.DIR_NE: [utl.DIR_N, utl.DIR_E],
-		utl.DIR_NW: [utl.DIR_N, utl.DIR_W],
-		utl.DIR_SW: [utl.DIR_S, utl.DIR_W],
-		utl.DIR_SE: [utl.DIR_S, utl.DIR_E],
+		utl.DIRECTION.NE: [utl.DIRECTION.N, utl.DIRECTION.E],
+		utl.DIRECTION.NW: [utl.DIRECTION.N, utl.DIRECTION.W],
+		utl.DIRECTION.SW: [utl.DIRECTION.S, utl.DIRECTION.W],
+		utl.DIRECTION.SE: [utl.DIRECTION.S, utl.DIRECTION.E],
 		}
 	var diagonal_lookup_corners = {
-		utl.DIR_NE: Vector2(grid_object.width, -1),
-		utl.DIR_NW: Vector2(-1, -1),
-		utl.DIR_SW: Vector2(-1, grid_object.height),
-		utl.DIR_SE: Vector2(grid_object.width, grid_object.height),
+		utl.DIRECTION.NE: Vector2(grid_object.width, -1),
+		utl.DIRECTION.NW: Vector2(-1, -1),
+		utl.DIRECTION.SW: Vector2(-1, grid_object.height),
+		utl.DIRECTION.SE: Vector2(grid_object.width, grid_object.height),
 		}
 	if dir in cardinal_lookup_bounds:
 		if _check_can_move_section(start_coord, cardinal_lookup_bounds[dir]):
@@ -87,7 +87,7 @@ func _check_obj_can_move_dir(grid_object, dir):
 		var can_move_0 = _check_can_move_section(start_coord, cardinal_lookup_bounds[d0])
 		var can_move_1 = _check_can_move_section(start_coord, cardinal_lookup_bounds[d1])
 		var corner = diagonal_lookup_corners[dir]
-		var can_move_corner = tilemap.get_cell(start_coord.x + corner.x, start_coord.y + corner.y) == utl.GRID_NONE
+		var can_move_corner = tilemap.get_cell(start_coord.x + corner.x, start_coord.y + corner.y) == utl.GRID_OBJECT_TYPE.GRID_NONE
 		if can_move_0 and can_move_1 and can_move_corner:
 			dir_to_move = dir
 		elif can_move_0 and (not can_move_1):
@@ -101,7 +101,7 @@ func _check_can_move_section(start, params):
 	var coord = Vector2(params[0], params[2])
 	while coord.x <= params[1]:
 		while coord.y <= params[3]:
-			if tilemap.get_cell(start.x + coord.x, start.y + coord.y) != utl.GRID_NONE:
+			if tilemap.get_cell(start.x + coord.x, start.y + coord.y) != utl.GRID_OBJECT_TYPE.GRID_NONE:
 				can_move = false
 			coord.y += 1
 		coord.y = params[2]

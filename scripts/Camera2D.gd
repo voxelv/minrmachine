@@ -1,6 +1,6 @@
 extends Camera2D
 
-const zoom_speed = 0.05
+const zoom_speed:float = 0.05
 
 onready var game_glass = get_node("/root/main/ui_layer/HBoxContainer/VBoxContainer/game_glass")
 onready var prev_ggc = game_glass.get_node("game_glass_center").get_rect().position
@@ -14,7 +14,7 @@ signal zoom_label_set
 var zoom_factor = 1.0
 var middle_mouse_pressed = false
 enum CAMERA_STATE {FOLLOW_PLAYER, SLEW_TO_PLAYER, SLEWING_TO_PLAYER, PAN_AWAY}
-var camera_state = FOLLOW_PLAYER
+var camera_state = CAMERA_STATE.FOLLOW_PLAYER
 
 # Available Zoom Levels and the relative zoom (e.g. 2x)
 var zoom_set =   [ 0.125, 0.25,  0.5,  1.0 ]
@@ -30,11 +30,11 @@ func _ready():
 	reset_and_center_view()
 
 func _movement_slew_cb():
-	camera_state = FOLLOW_PLAYER
+	camera_state = CAMERA_STATE.FOLLOW_PLAYER
 
 func _process(delta):
 	match(camera_state):
-		SLEW_TO_PLAYER:
+		CAMERA_STATE.SLEW_TO_PLAYER:
 			var to_v = player_cell.get_center_pos()
 			to_v.x -= (game_glass.rect_size.x / 2.0) * zoom_factor
 			to_v.y -= (game_glass.rect_size.y / 2.0) * zoom_factor
@@ -42,8 +42,8 @@ func _process(delta):
 			mov_slew.interpolate_property(self, "offset", p_ofst, to_v, player_cell.speed, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 			mov_slew.interpolate_callback(self, player_cell.speed, "_movement_slew_cb")
 			mov_slew.start()
-			camera_state = SLEWING_TO_PLAYER
-		FOLLOW_PLAYER:
+			camera_state = CAMERA_STATE.SLEWING_TO_PLAYER
+		CAMERA_STATE.FOLLOW_PLAYER:
 			var c = player_cell.get_draw_center_pos()
 			c.x -= (game_glass.rect_size.x / 2.0) * zoom_factor
 			c.y -= (game_glass.rect_size.y / 2.0) * zoom_factor
@@ -64,7 +64,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_MIDDLE:
 			middle_mouse_pressed = event.pressed
-			camera_state = PAN_AWAY
+			camera_state = CAMERA_STATE.PAN_AWAY
 		elif event.button_index == BUTTON_WHEEL_UP && !event.pressed:
 			zoom_in()
 			constrain_offset()
@@ -159,4 +159,4 @@ func _window_size_changed():
 
 func _on_player_moved():
 	if camera_state != CAMERA_STATE.FOLLOW_PLAYER:
-		camera_state = SLEW_TO_PLAYER
+		camera_state = CAMERA_STATE.SLEW_TO_PLAYER

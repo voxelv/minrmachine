@@ -27,7 +27,7 @@ func move(direction):
 	var request_accepted = false
 	if not moving:
 		var moved_dir = grid.request_move(self, direction)
-		if moved_dir != utl.DIR_NONE and moved_dir != utl.DIR_INV:
+		if moved_dir != utl.DIRECTION.NONE and moved_dir != utl.DIRECTION.INV:
 			moving = true
 			var draw_pos = grid.map_to_world(utl.dir_to_offset(utl.dir_inv(moved_dir)))
 			draw.position = draw_pos

@@ -1,7 +1,7 @@
 extends 'grid_object.gd'
 
-onready var o_grid = get_node("draw/o_grid")
-onready var e_grid = get_node("draw/e_grid")
+onready var o_grid = get_node("draw/o_grid") as TileMap
+onready var e_grid = get_node("draw/e_grid") as TileMap
 
 func _ready():
 	pass
@@ -9,7 +9,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func _coord_in_cell(coord):
+func _coord_in_cell(coord:Vector2):
 	return((0 <= coord.x) and (coord.x < width) and (0 <= coord.y) and (coord.y < height))
 
 func add_wire(vcoord):

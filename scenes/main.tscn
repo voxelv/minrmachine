@@ -16,386 +16,152 @@
 
 [node name="main" type="Node"]
 
-[node name="ui_layer" type="CanvasLayer" parent="." index="0"]
+[node name="ui_layer" type="CanvasLayer" parent="."]
 
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ui_layer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ui_layer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 theme = ExtResource( 1 )
 custom_constants/separation = 0
-alignment = 0
-_sections_unfolded = [ "Theme", "custom_constants" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ui_layer/HBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VBoxContainer" type="VBoxContainer" parent="ui_layer/HBoxContainer"]
 margin_right = 721.0
 margin_bottom = 600.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Mouse" ]
 
-[node name="game_glass" type="CenterContainer" parent="ui_layer/HBoxContainer/VBoxContainer" index="0"]
-
+[node name="game_glass" type="CenterContainer" parent="ui_layer/HBoxContainer/VBoxContainer"]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 721.0
 margin_bottom = 522.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-use_top_left = false
-_sections_unfolded = [ "Mouse", "Rect" ]
 
-[node name="game_glass_center" type="Control" parent="ui_layer/HBoxContainer/VBoxContainer/game_glass" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="game_glass_center" type="Control" parent="ui_layer/HBoxContainer/VBoxContainer/game_glass"]
 margin_left = 360.0
 margin_top = 261.0
 margin_right = 360.0
 margin_bottom = 261.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="h_bar" type="MarginContainer" parent="ui_layer/HBoxContainer/VBoxContainer" index="1"]
-
+[node name="h_bar" type="MarginContainer" parent="ui_layer/HBoxContainer/VBoxContainer"]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 526.0
 margin_right = 721.0
 margin_bottom = 600.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/margin_right = 0
 custom_constants/margin_top = 0
 custom_constants/margin_left = 0
 custom_constants/margin_bottom = 0
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Panel" type="Panel" parent="ui_layer/HBoxContainer/VBoxContainer/h_bar" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Panel" type="Panel" parent="ui_layer/HBoxContainer/VBoxContainer/h_bar"]
 margin_right = 721.0
 margin_bottom = 74.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ui_layer/HBoxContainer/VBoxContainer/h_bar" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="MarginContainer" type="MarginContainer" parent="ui_layer/HBoxContainer/VBoxContainer/h_bar"]
 margin_right = 721.0
 margin_bottom = 74.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 5
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="TextureRect" type="TextureRect" parent="ui_layer/HBoxContainer/VBoxContainer/h_bar/MarginContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="TextureRect" type="TextureRect" parent="ui_layer/HBoxContainer/VBoxContainer/h_bar/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 716.0
 margin_bottom = 69.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 texture = ExtResource( 2 )
-stretch_mode = 0
 
-[node name="v_bar" type="MarginContainer" parent="ui_layer/HBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="v_bar" type="MarginContainer" parent="ui_layer/HBoxContainer"]
 margin_left = 721.0
 margin_right = 1024.0
 margin_bottom = 600.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/margin_right = 0
 custom_constants/margin_top = 0
 custom_constants/margin_left = 0
 custom_constants/margin_bottom = 0
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Panel" type="Panel" parent="ui_layer/HBoxContainer/v_bar" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Panel" type="Panel" parent="ui_layer/HBoxContainer/v_bar"]
 margin_right = 303.0
 margin_bottom = 600.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ui_layer/HBoxContainer/v_bar" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="MarginContainer" type="MarginContainer" parent="ui_layer/HBoxContainer/v_bar"]
 margin_right = 303.0
 margin_bottom = 600.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 5
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ui_layer/HBoxContainer/v_bar/MarginContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VBoxContainer" type="VBoxContainer" parent="ui_layer/HBoxContainer/v_bar/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 298.0
 margin_bottom = 595.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer"]
 margin_right = 293.0
 margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 
-[node name="reset_view_button" type="Button" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="reset_view_button" type="Button" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2"]
 margin_right = 72.0
 margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "RESET"
-flat = false
-align = 1
-_sections_unfolded = [ "custom_fonts" ]
 
-[node name="zoom_label" type="Label" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="zoom_label" type="Label" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 76.0
 margin_top = 4.0
 margin_right = 293.0
 margin_bottom = 11.0
 rect_min_size = Vector2( 62.5, 0 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 3 )
 text = "ZOOM"
 valign = 1
 autowrap = true
 uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 script = ExtResource( 4 )
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="inventory" type="VBoxContainer" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="inventory" type="VBoxContainer" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer"]
 margin_top = 20.0
 margin_right = 293.0
 margin_bottom = 145.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 script = ExtResource( 5 )
 
-[node name="tile_container" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="0" instance=ExtResource( 6 )]
-
+[node name="tile_container" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" instance=ExtResource( 6 )]
 margin_right = 293.0
 margin_bottom = 39.0
 tile_name = "TEST LONG NAME AND STUFF AND THINGS A LOT MORE THAN NORMAL"
 
-[node name="tile_container2" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="1" instance=ExtResource( 6 )]
-
+[node name="tile_container2" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" instance=ExtResource( 6 )]
 margin_top = 43.0
 margin_right = 293.0
 margin_bottom = 82.0
 tile_name = "TEST2"
 
-[node name="tile_container3" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" index="2" instance=ExtResource( 6 )]
-
+[node name="tile_container3" parent="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/inventory" instance=ExtResource( 6 )]
 margin_top = 86.0
 margin_right = 293.0
 margin_bottom = 125.0
 tile_name = "TEST3"
 
-[node name="game_area" type="Node" parent="." index="1"]
+[node name="game_area" type="Node" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="game_area" index="0"]
-
+[node name="Camera2D" type="Camera2D" parent="game_area"]
 editor/display_folded = true
 anchor_mode = 0
-rotating = false
 current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
 script = ExtResource( 7 )
 
-[node name="movement_slew" type="Tween" parent="game_area/Camera2D" index="0"]
+[node name="movement_slew" type="Tween" parent="game_area/Camera2D"]
 
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
+[node name="bg_stones2" type="Node2D" parent="game_area"]
 
-[node name="bg_stones2" type="Node2D" parent="game_area" index="1"]
-
-_sections_unfolded = [ "Visibility" ]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="stone_bg" type="Sprite" parent="game_area/bg_stones2" index="0"]
-
+[node name="stone_bg" type="Sprite" parent="game_area/bg_stones2"]
 self_modulate = Color( 0.40625, 0.40625, 0.40625, 1 )
 position = Vector2( -1250, -1125 )
 scale = Vector2( 5, 5 )
@@ -403,44 +169,31 @@ texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 625, 625 )
-_sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="stone_bg2" type="Sprite" parent="game_area/bg_stones2" index="1"]
-
+[node name="stone_bg2" type="Sprite" parent="game_area/bg_stones2"]
 self_modulate = Color( 0.75, 0.75, 0.75, 1 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 125, 125 )
-_sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="bg_outline" type="Sprite" parent="game_area/bg_stones2" index="2"]
-
+[node name="bg_outline" type="Sprite" parent="game_area/bg_stones2"]
 self_modulate = Color( 0.164063, 0.164063, 0.164063, 1 )
 position = Vector2( -25, -25 )
 texture = ExtResource( 9 )
 centered = false
-_sections_unfolded = [ "Offset", "Visibility" ]
 
-[node name="game_grid" parent="game_area" index="2" instance=ExtResource( 10 )]
-
+[node name="game_grid" parent="game_area" instance=ExtResource( 10 )]
 editor/display_folded = true
 script = ExtResource( 11 )
 
-[node name="player_cell" parent="game_area/game_grid" index="1" instance=ExtResource( 12 )]
-
+[node name="player_cell" parent="game_area/game_grid" instance=ExtResource( 12 )]
 position = Vector2( 250, 250 )
 script = ExtResource( 13 )
 width = 5
 height = 5
 speed = 0.1
-input_wait = 0.05
 
 [connection signal="pressed" from="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2/reset_view_button" to="game_area/Camera2D" method="_on_reset_view_button_pressed"]
-
-[connection signal="zoom_label_set" from="game_area/Camera2D" to="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2/zoom_label" method="_on_Camera2D_zoom_label_set"]
-
 [connection signal="player_moved" from="game_area/game_grid/player_cell" to="game_area/Camera2D" method="_on_player_moved"]
-
-
