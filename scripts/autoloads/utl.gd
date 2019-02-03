@@ -4,9 +4,9 @@ extends Node
 enum GRID_OBJECT_TYPE {GRID_NONE=-1, GRID_ROCK, GRID_COAL, GRID_IRON, GRID_COPPER, GRID_RADICAL}
 enum DIRECTION {NONE, N, E, S, W, NW, SW, SE, NE, INV}
 enum E_GRID {NONE = -1, WIRE}
-enum O_GRID {NONE = -1, CENTRAL_UNIT}
+enum ORGANELLE {NONE = -1, CENTRAL_UNIT, DRILL}
 
-var e_grid_organelles = [O_GRID.CENTRAL_UNIT]
+var e_grid_organelles = [ORGANELLE.CENTRAL_UNIT, ORGANELLE.DRILL]
 
 const TILES_PER_SIDE = 25
 const CELL_SIZE_PIXELS = 25.0
@@ -97,4 +97,40 @@ func dir_to_offset(direction:int):
 		_:
 			pass
 	return Vector2(x, y)
+
+func rotate_25px_sprite(sprite:Sprite, direction:int):
+	var _rotations = [0, PI/2, PI, 3*PI/2]
+	var _positions = [Vector2(0, 0), Vector2(25, 0), Vector2(25, 25), Vector2(0, 25)]
+	var _flip_v = [false, false, true, true]
+	
+	var idx:int = 0
+	
+	match(direction):
+		DIRECTION.E:
+			idx = 0
+		DIRECTION.S:
+			idx = 1
+		DIRECTION.W:
+			idx = 2
+		DIRECTION.N:
+			idx = 3
+		_:
+			pass
+	
+	sprite.rotation = _rotations[idx]
+	sprite.position = _positions[idx]
+	sprite.flip_v = _flip_v[idx]
+
+
+
+
+
+
+
+
+
+
+
+
+
 

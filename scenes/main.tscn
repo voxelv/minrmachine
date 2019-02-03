@@ -17,6 +17,7 @@
 [node name="main" type="Node"]
 
 [node name="ui_layer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui_layer"]
 anchor_right = 1.0
@@ -185,7 +186,6 @@ texture = ExtResource( 9 )
 centered = false
 
 [node name="game_grid" parent="game_area" instance=ExtResource( 10 )]
-editor/display_folded = true
 script = ExtResource( 11 )
 
 [node name="player_cell" parent="game_area/game_grid" instance=ExtResource( 12 )]

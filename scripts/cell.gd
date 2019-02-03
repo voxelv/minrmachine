@@ -1,7 +1,7 @@
 extends 'grid_object.gd'
 
-onready var o_grid = get_node("draw/o_grid") as TileMap
-onready var e_grid = get_node("draw/e_grid") as TileMap
+onready var o_grid = find_node("o_grid") as TileMap
+onready var e_grid = find_node("e_grid") as TileMap
 
 func _ready():
 	pass
@@ -15,10 +15,12 @@ func _coord_in_cell(coord:Vector2):
 func add_wire(vcoord):
 	if _coord_in_cell(vcoord):
 		e_grid.set_cell(vcoord.x, vcoord.y, utl.E_GRID.WIRE, false, false, false, Vector2(0, 0))
+		e_grid.update_bitmask_area(vcoord)
 
 func del_wire(vcoord):
 	if _coord_in_cell(vcoord):
 		e_grid.set_cell(vcoord.x, vcoord.y, utl.E_GRID.NONE, false, false, false, Vector2(0, 0))
+		e_grid.update_bitmask_area(vcoord)
 
 func add_organelle(vcoord, organelle):
 	if _coord_in_cell(vcoord):
@@ -32,6 +34,4 @@ func del_organelle(vcoord):
 		o_grid.set_cell(vcoord.x, vcoord.y, utl.O_GRID.NONE, false, false, false, Vector2(0, 0))
 		if prev_organelle in utl.e_grid_organelles:
 			del_wire(vcoord)
-
-
 

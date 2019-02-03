@@ -6,80 +6,26 @@
 [ext_resource path="res://assets/tilemaps/organelles_25x.tres" type="TileSet" id=4]
 
 [node name="cell" type="Node2D"]
-
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
-width = 1
-height = 1
-speed = 0.5
 
-[node name="draw" type="Node2D" parent="." index="0"]
+[node name="draw" type="Node2D" parent="."]
 
-_sections_unfolded = [ "Transform" ]
-
-[node name="Sprite" type="Sprite" parent="draw" index="0"]
-
+[node name="Sprite" type="Sprite" parent="draw"]
 texture = ExtResource( 2 )
 centered = false
-_sections_unfolded = [ "Offset" ]
 
-[node name="e_grid" type="TileMap" parent="draw" index="1"]
-
-mode = 0
+[node name="e_grid" type="TileMap" parent="draw"]
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 25, 25 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray(  )
-_sections_unfolded = [ "Cell", "Transform" ]
 
-[node name="o_grid" type="TileMap" parent="draw" index="2"]
-
-mode = 0
+[node name="o_grid" type="TileMap" parent="draw"]
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 25, 25 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray(  )
-_sections_unfolded = [ "Cell", "Visibility" ]
 
-[node name="cellv_test_pos" type="Position2D" parent="." index="1"]
-
+[node name="cellv_test_pos" type="Position2D" parent="."]
 position = Vector2( 12.5, 12.5 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="movement" type="Tween" parent="." index="2"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
+[node name="movement" type="Tween" parent="."]
 

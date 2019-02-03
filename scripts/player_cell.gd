@@ -11,11 +11,20 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT && event.pressed:
+		if event.pressed:
 			var pressed_coord = e_grid.world_to_map(get_local_mouse_position())
 			if _coord_in_cell(pressed_coord):
-				get_tree().set_input_as_handled()
 				print("Player Cell Pressed @ " + str(pressed_coord))
+				
+				match(event.button_index):
+					BUTTON_LEFT:
+						add_wire(pressed_coord)
+						get_tree().set_input_as_handled()
+					BUTTON_RIGHT:
+						del_wire(pressed_coord)
+						get_tree().set_input_as_handled()
+					_:
+						pass
 
 func _process(delta):
 	var dir_pressed = any_move_input()
