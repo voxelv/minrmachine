@@ -1,6 +1,6 @@
 extends Node
 
-func fill_slots(fill, slots):
+func fill_slots(fill:int, slots:Array):
 	# initialize n
 	var n = len(slots)
 	
@@ -10,7 +10,7 @@ func fill_slots(fill, slots):
 			return(null)
 		
 		# initialize result_slots
-		var result_slots = []
+		var result_slots:Array = []
 		for i in range(len(slots)):
 			result_slots.append(0)
 		
@@ -19,20 +19,22 @@ func fill_slots(fill, slots):
 			return({'fill': 0, 'slots': result_slots})
 		
 		# base case: too much fill
-		var max_fill = 0
+		var max_fill:int = 0
 		for val in slots:
-			max_fill += val
+			var increment:int = int(val)
+			max_fill += increment
 		if fill >= max_fill:
 			return({'fill': fill - max_fill, 'slots': slots})
 		
 		# calculate average and remainder
-		var avg = fill / n
-		var rem = fill % n
+		var avg:int = int(fill) / int(n)
+		var rem:int = int(fill) % int(n)
 		
 		# base case: not enough fill
-		if n > fill and fill > 0 and avg == 0:
+		if (int(n) > int(fill)) and (int(fill) > 0) and (int(avg) == 0):
 			for i in range(len(slots)):
-				if result_slots[i] > slots[i]:
+				var i_ = int(i)
+				if int(result_slots[i_]) > int(slots[i_]):
 					continue
 				
 				if rem == 0:
