@@ -1,9 +1,8 @@
 extends Node2D
 
-var grid = null
-var cellv = null
-onready var cellv_test_pos = $cellv_test_pos.position
-var moving = false
+var grid:Node2D = null
+onready var cellv_test_pos:Vector2 = $cellv_test_pos.position
+var moving:bool = false
 
 onready var movement = get_node("movement")
 onready var draw = get_node("draw")
@@ -13,7 +12,7 @@ export(int) var height = 1
 export(float) var speed = 0.5
 
 func _ready():
-	get_parent().register_grid_object(self)
+	get_parent().register_grid_entity(self)
 
 func get_cellv_test_pos():
 	var result = to_global(cellv_test_pos)

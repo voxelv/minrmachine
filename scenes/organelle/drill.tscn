@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.01 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 10, 8.86917e-005 ), Vector2( 25, 0.000222206 ) ]
+"values": [ Vector2( 10, 8.86917e-05 ), Vector2( 25, 0.000222206 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("drill_base:texture")
@@ -50,7 +50,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.01 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 25, 0.000222206 ), Vector2( 10, 8.86917e-005 ) ]
+"values": [ Vector2( 25, 0.000222206 ), Vector2( 10, 8.86917e-05 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("drill_base:texture")
@@ -72,12 +72,12 @@ script = ExtResource( 1 )
 position = Vector2( 12, 12 )
 
 [node name="drill_base" type="Sprite" parent="."]
-rotation = -8.88506e-006
+rotation = -8.88506e-06
 texture = ExtResource( 2 )
 centered = false
 
 [node name="drill_head" type="Sprite" parent="drill_base"]
-position = Vector2( 10, 8.86917e-005 )
+position = Vector2( 10, 8.86917e-05 )
 texture = ExtResource( 3 )
 centered = false
 

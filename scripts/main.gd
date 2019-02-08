@@ -5,7 +5,7 @@ const zoom_speed:float = 0.05
 onready var game_glass = get_node("/root/main/ui_layer/HBoxContainer/VBoxContainer/game_glass")
 onready var prev_ggc = game_glass.get_node("game_glass_center").get_rect().position
 onready var game_grid = get_node("/root/main/game_area/game_grid")
-onready var tm = game_grid.get_node("TileMap")
+onready var tm:TileMap = game_grid.get_node("TileMap") as TileMap
 onready var player_cell = get_node("../game_grid/player_cell")
 onready var mov_slew = get_node("movement_slew")
 
@@ -73,6 +73,16 @@ func _unhandled_input(event):
 			constrain_offset()
 		elif event.button_index == BUTTON_LEFT && event.pressed:
 			var v = tm.world_to_map((event.position * zoom_factor) + offset)
+			if gamedata.player_inv[gamedata.selected_index]['type'] == utl.GRID.NONE:
+				var tile = tm.get_cellv(v)
+				tm.set_cellv(v, utl.GRID.NONE)
+				for item in gamedata.player_inv:
+					if item['type'] == tile:
+						item['count'] += 1
+			elif gamedata.player_inv[gamedata.selected_index]['count'] > 0:
+				gamedata.player_inv[gamedata.selected_index]['count'] -= 1
+				tm.set_cellv(v, gamedata.player_inv[gamedata.selected_index]['type'])
+			gamedata.inv_needs_update = true
 			print(v, ": ", tm.get_cellv(v))
 
 func zoom_in():

@@ -1,7 +1,7 @@
-extends 'grid_object.gd'
+extends 'grid_entity.gd'
 
-onready var o_grid = find_node("o_grid") as TileMap
-onready var e_grid = find_node("e_grid") as TileMap
+onready var o_grid:TileMap = find_node("o_grid") as TileMap
+onready var e_grid:TileMap = find_node("e_grid") as TileMap
 
 func _ready():
 	pass
