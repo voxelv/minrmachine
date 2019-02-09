@@ -8,6 +8,52 @@ var ready = false
 func _ready():
 	ready = true
 
+func _grid_coord_to_entity_coord(entity, coord:Vector2) -> Vector2:
+	var entity_coord:Vector2 = tm.world_to_map(entity.get_cellv_test_pos())
+	return(coord - entity_coord)
+
+func _entity_coord_to_grid_coord(entity, coord:Vector2) -> Vector2:
+	var entity_coord:Vector2 = tm.world_to_map(entity.get_cellv_test_pos())
+	return(coord + entity_coord)
+
+func _entity_clicked(coord:Vector2):
+	var result = null
+	for entity in grid_entities:
+		if entity.contains_coord(_grid_coord_to_entity_coord(entity, coord)):
+			result = entity
+			break
+	return result
+
+func _click_rock_grid(coord):
+	var current_item = gamedata.get_current_inv_item()
+	if current_item.grid == utl.GRID.ROCK:
+		var prev_tile = tm.get_cellv(coord)
+		if current_item.type == utl.ROCK.NONE:
+			tm.set_cellv(coord, utl.ROCK.NONE)
+			if prev_tile != utl.ROCK.NONE:
+				for item in gamedata.player_inv:
+					if item.grid == utl.GRID.ROCK and item.type == prev_tile:
+						item.count += 1
+		else:
+			if current_item.count > 0:
+				current_item.count -= 1
+				tm.set_cellv(coord, current_item.type)
+				if prev_tile != utl.ROCK.NONE:
+					for item in gamedata.player_inv:
+						if item.grid == utl.GRID.ROCK and item.type == prev_tile:
+							item.count += 1
+		gamedata.inv_needs_update = true
+	print(coord, ": ", tm.get_cellv(coord))
+
+func clicked_at(world_pos:Vector2, event:InputEventMouseButton) -> void:
+	var v = tm.world_to_map(world_pos)
+	var entity = _entity_clicked(v)
+	if entity != null:
+		entity.click_at(_grid_coord_to_entity_coord(entity, v), event)
+	else:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			_click_rock_grid(v)
+
 func get_grid_rect():
 	var side_length = tm.cell_size.x * utl.TILES_PER_SIDE
 	var rect = Rect2(position, Vector2(side_length, side_length))

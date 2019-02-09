@@ -71,27 +71,9 @@ func _unhandled_input(event):
 		elif event.button_index == BUTTON_WHEEL_DOWN && !event.pressed:
 			zoom_out()
 			constrain_offset()
-		elif event.button_index == BUTTON_LEFT && event.pressed:
-			var v = tm.world_to_map((event.position * zoom_factor) + offset)
-			var current_item = gamedata.get_current_inv_item()
-			if current_item.grid == utl.GRID.ROCK:
-				var prev_tile = tm.get_cellv(v)
-				if current_item.type == utl.ROCK.NONE:
-					tm.set_cellv(v, utl.ROCK.NONE)
-					if prev_tile != utl.ROCK.NONE:
-						for item in gamedata.player_inv:
-							if item.grid == utl.GRID.ROCK and item.type == prev_tile:
-								item.count += 1
-				else:
-					if current_item.count > 0:
-						current_item.count -= 1
-						tm.set_cellv(v, current_item.type)
-						if prev_tile != utl.ROCK.NONE:
-							for item in gamedata.player_inv:
-								if item.grid == utl.GRID.ROCK and item.type == prev_tile:
-									item.count += 1
-				gamedata.inv_needs_update = true
-			print(v, ": ", tm.get_cellv(v))
+		else:
+			var calculated_pos:Vector2 = (event.position * zoom_factor) + offset
+			game_grid.clicked_at(calculated_pos, event as InputEventMouseButton)
 
 func zoom_in():
 	zoom_idx -= 1

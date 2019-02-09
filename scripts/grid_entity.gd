@@ -14,11 +14,17 @@ export(int) var width = 1
 export(int) var height = 1
 export(float) var speed = 0.5
 
+func contains_coord(coord:Vector2):
+	return((0 <= coord.x) and (coord.x < width) and (0 <= coord.y) and (coord.y < height))
+
 func _ready():
 	get_parent().register_grid_entity(self)
 
 func _input(event: InputEvent) -> void:
 	emit_signal("input_detected", event)
+
+func click_at(coord:Vector2, event:InputEventMouseButton):
+	print("Grid Entity clicked at: ", coord)
 
 func get_cellv_test_pos():
 	var result = to_global(cellv_test_pos)

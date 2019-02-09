@@ -3,21 +3,18 @@ extends 'grid_entity.gd'
 onready var o_grid:TileMap = find_node("o_grid") as TileMap
 onready var e_grid:TileMap = find_node("e_grid") as TileMap
 
-func _coord_in_cell(coord:Vector2):
-	return((0 <= coord.x) and (coord.x < width) and (0 <= coord.y) and (coord.y < height))
-
 func add_wire(vcoord):
-	if _coord_in_cell(vcoord):
+	if contains_coord(vcoord):
 		e_grid.set_cell(vcoord.x, vcoord.y, utl.ENERGY.WIRE, false, false, false, Vector2(0, 0))
 		e_grid.update_bitmask_area(vcoord)
 
 func del_wire(vcoord):
-	if _coord_in_cell(vcoord):
+	if contains_coord(vcoord):
 		e_grid.set_cell(vcoord.x, vcoord.y, utl.ENERGY.NONE, false, false, false, Vector2(0, 0))
 		e_grid.update_bitmask_area(vcoord)
 
 func add_organelle(vcoord, organelle):
-	if _coord_in_cell(vcoord):
+	if contains_coord(vcoord):
 		var prev_organelle = o_grid.get_cellv(vcoord)
 		if(prev_organelle != utl.ORGANELLE.NONE):
 			return
@@ -26,7 +23,7 @@ func add_organelle(vcoord, organelle):
 			add_wire(vcoord)
 
 func del_organelle(vcoord):
-	if _coord_in_cell(vcoord):
+	if contains_coord(vcoord):
 		var prev_organelle = o_grid.get_cell(vcoord.x, vcoord.y)
 		o_grid.set_cell(vcoord.x, vcoord.y, utl.ORGANELLE.NONE, false, false, false, Vector2(0, 0))
 		if prev_organelle in utl.e_grid_organelles:

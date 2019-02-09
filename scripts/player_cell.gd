@@ -9,23 +9,36 @@ var input_on = false
 func _ready():
 	pass
 
-func _input(event:InputEvent) -> void:
-	._input(event)
-	if event is InputEventMouseButton:
-		if event.pressed:
-			var pressed_coord:Vector2 = e_grid.world_to_map(get_local_mouse_position())
-			if _coord_in_cell(pressed_coord):
-				print("Player Cell Pressed @ " + str(pressed_coord))
-				
-				match(event.button_index):
-					BUTTON_LEFT:
-						add_wire(pressed_coord)
-						get_tree().set_input_as_handled()
-					BUTTON_RIGHT:
-						del_wire(pressed_coord)
-						get_tree().set_input_as_handled()
-					_:
-						pass
+#func _input(event:InputEvent) -> void:
+#	._input(event)
+#	if event is InputEventMouseButton:
+#		if event.pressed:
+#			var pressed_coord:Vector2 = e_grid.world_to_map(get_local_mouse_position())
+#			if contains_coord(pressed_coord):
+#				print("Player Cell Pressed @ " + str(pressed_coord))
+#
+#				match(event.button_index):
+#					BUTTON_LEFT:
+#						add_wire(pressed_coord)
+#						get_tree().set_input_as_handled()
+#					BUTTON_RIGHT:
+#						del_wire(pressed_coord)
+#						get_tree().set_input_as_handled()
+#					_:
+#						pass
+
+func click_at(coord:Vector2, event:InputEventMouseButton):
+	.click_at(coord, event)
+	if event.pressed:
+		match(event.button_index):
+			BUTTON_LEFT:
+				add_wire(coord)
+				get_tree().set_input_as_handled()
+			BUTTON_RIGHT:
+				del_wire(coord)
+				get_tree().set_input_as_handled()
+			_:
+				pass
 
 func _process(delta):
 	var dir_pressed = any_move_input()
