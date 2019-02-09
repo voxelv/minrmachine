@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://scripts/grid_entity.gd"
 
 var _direction_lkup:Array = [utl.DIRECTION.E, utl.DIRECTION.S, utl.DIRECTION.W, utl.DIRECTION.N]
 onready var rotation_sprite:Sprite = get_rotation_sprite()

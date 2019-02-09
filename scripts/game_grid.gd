@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var tm:TileMap = get_node("TileMap") as TileMap
+onready var tm:TileMap = find_node("rock_grid") as TileMap
 
 var grid_entities = []
 var ready = false
@@ -62,7 +62,7 @@ func get_grid_rect():
 func register_grid_entity(grid_entity):
 	if not ready:
 		yield(get_tree(), "idle_frame")
-
+	
 	grid_entity.grid = self
 	grid_entity.position = map_to_world(world_to_map(grid_entity.position))
 	grid_entities.append(grid_entity)
@@ -74,6 +74,12 @@ func world_to_map(pos):
 func map_to_world(cellv):
 	var result = tm.map_to_world(cellv)
 	return(result)
+
+func remove_tile_at(world_pos:Vector2) -> int:
+	var v = tm.world_to_map(world_pos)
+	var prev_tile:int = tm.get_cellv(v)
+	tm.set_cellv(v, utl.ROCK.NONE)
+	return(prev_tile)
 
 func request_move(grid_entity, direction):
 	# Moves a grid_entity

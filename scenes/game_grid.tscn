@@ -4,7 +4,7 @@
 
 [node name="game_grid" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="rock_grid" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 25, 25 )
 cell_quadrant_size = 25

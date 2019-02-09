@@ -9,34 +9,24 @@ var input_on = false
 func _ready():
 	pass
 
-#func _input(event:InputEvent) -> void:
-#	._input(event)
-#	if event is InputEventMouseButton:
-#		if event.pressed:
-#			var pressed_coord:Vector2 = e_grid.world_to_map(get_local_mouse_position())
-#			if contains_coord(pressed_coord):
-#				print("Player Cell Pressed @ " + str(pressed_coord))
-#
-#				match(event.button_index):
-#					BUTTON_LEFT:
-#						add_wire(pressed_coord)
-#						get_tree().set_input_as_handled()
-#					BUTTON_RIGHT:
-#						del_wire(pressed_coord)
-#						get_tree().set_input_as_handled()
-#					_:
-#						pass
-
 func click_at(coord:Vector2, event:InputEventMouseButton):
 	.click_at(coord, event)
 	if event.pressed:
 		match(event.button_index):
 			BUTTON_LEFT:
-				add_wire(coord)
+				var current_item = gamedata.get_current_inv_item()
+				if current_item.grid == utl.GRID.ORGANELLE:
+					add_organelle(coord, current_item.type)
+				else:
+					add_organelle(coord, utl.ORGANELLE.CENTRAL_UNIT)
 				get_tree().set_input_as_handled()
 			BUTTON_RIGHT:
-				del_wire(coord)
-				get_tree().set_input_as_handled()
+				if e_grid.get_cellv(coord) != utl.ENERGY.WIRE:
+					add_wire(coord)
+					get_tree().set_input_as_handled()
+				else:
+					del_organelle(coord)
+					del_wire(coord)
 			_:
 				pass
 

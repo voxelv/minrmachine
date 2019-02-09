@@ -178,6 +178,7 @@ script = ExtResource( 12 )
 width = 5
 height = 5
 speed = 0.1
+can_move = true
 
 [connection signal="pressed" from="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2/reset_view_button" to="game_area/Camera2D" method="_on_reset_view_button_pressed"]
 [connection signal="player_moved" from="game_area/game_grid/player_cell" to="game_area/Camera2D" method="_on_player_moved"]
