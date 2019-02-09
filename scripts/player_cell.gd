@@ -9,10 +9,11 @@ var input_on = false
 func _ready():
 	pass
 
-func _input(event):
+func _input(event:InputEvent) -> void:
+	._input(event)
 	if event is InputEventMouseButton:
 		if event.pressed:
-			var pressed_coord = e_grid.world_to_map(get_local_mouse_position())
+			var pressed_coord:Vector2 = e_grid.world_to_map(get_local_mouse_position())
 			if _coord_in_cell(pressed_coord):
 				print("Player Cell Pressed @ " + str(pressed_coord))
 				

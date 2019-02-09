@@ -3,7 +3,7 @@ extends Control
 signal clicked
 
 var tile_name = "TEST"
-var tile_type = utl.GRID.NONE
+var tile_type = utl.ROCK.NONE
 var tile_count = 0
 
 onready var name_label:Label = find_node("name") as Label

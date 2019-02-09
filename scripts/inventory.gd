@@ -17,8 +17,8 @@ func update_inventory():
 		new_item.connect("clicked", self, "inv_clicked")
 		inv_list.add_child(new_item)
 		new_item.set_selected(i == gamedata.selected_index)
-		new_item.set_name(obj["name"])
-		new_item.set_count(obj["count"])
+		new_item.set_name(obj.item_name)
+		new_item.set_count(obj.count)
 
 func deselect_all():
 	var tiles = inv_list.get_children()

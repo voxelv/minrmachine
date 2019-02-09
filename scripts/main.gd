@@ -73,16 +73,24 @@ func _unhandled_input(event):
 			constrain_offset()
 		elif event.button_index == BUTTON_LEFT && event.pressed:
 			var v = tm.world_to_map((event.position * zoom_factor) + offset)
-			if gamedata.player_inv[gamedata.selected_index]['type'] == utl.GRID.NONE:
-				var tile = tm.get_cellv(v)
-				tm.set_cellv(v, utl.GRID.NONE)
-				for item in gamedata.player_inv:
-					if item['type'] == tile:
-						item['count'] += 1
-			elif gamedata.player_inv[gamedata.selected_index]['count'] > 0:
-				gamedata.player_inv[gamedata.selected_index]['count'] -= 1
-				tm.set_cellv(v, gamedata.player_inv[gamedata.selected_index]['type'])
-			gamedata.inv_needs_update = true
+			var current_item = gamedata.get_current_inv_item()
+			if current_item.grid == utl.GRID.ROCK:
+				var prev_tile = tm.get_cellv(v)
+				if current_item.type == utl.ROCK.NONE:
+					tm.set_cellv(v, utl.ROCK.NONE)
+					if prev_tile != utl.ROCK.NONE:
+						for item in gamedata.player_inv:
+							if item.grid == utl.GRID.ROCK and item.type == prev_tile:
+								item.count += 1
+				else:
+					if current_item.count > 0:
+						current_item.count -= 1
+						tm.set_cellv(v, current_item.type)
+						if prev_tile != utl.ROCK.NONE:
+							for item in gamedata.player_inv:
+								if item.grid == utl.GRID.ROCK and item.type == prev_tile:
+									item.count += 1
+				gamedata.inv_needs_update = true
 			print(v, ": ", tm.get_cellv(v))
 
 func zoom_in():

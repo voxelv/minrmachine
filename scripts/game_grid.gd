@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var tilemap:TileMap = get_node("TileMap") as TileMap
+onready var tm:TileMap = get_node("TileMap") as TileMap
 
 var grid_entities = []
 var ready = false
@@ -8,12 +8,8 @@ var ready = false
 func _ready():
 	ready = true
 
-func remove_at(coord:Vector2):
-	var tile:int = tilemap.get_cellv(coord)
-	tilemap.set_cellv(coord, utl.GRID.NONE)
-
 func get_grid_rect():
-	var side_length = tilemap.cell_size.x * utl.TILES_PER_SIDE
+	var side_length = tm.cell_size.x * utl.TILES_PER_SIDE
 	var rect = Rect2(position, Vector2(side_length, side_length))
 	return(rect)
 
@@ -26,11 +22,11 @@ func register_grid_entity(grid_entity):
 	grid_entities.append(grid_entity)
 
 func world_to_map(pos):
-	var result = tilemap.world_to_map(pos)
+	var result = tm.world_to_map(pos)
 	return(result)
 
 func map_to_world(cellv):
-	var result = tilemap.map_to_world(cellv)
+	var result = tm.map_to_world(cellv)
 	return(result)
 
 func request_move(grid_entity, direction):
@@ -92,7 +88,7 @@ func _check_obj_can_move_dir(grid_entity, dir):
 		var can_move_0 = _check_can_move_section(start_coord, cardinal_lookup_bounds[d0])
 		var can_move_1 = _check_can_move_section(start_coord, cardinal_lookup_bounds[d1])
 		var corner = diagonal_lookup_corners[dir]
-		var can_move_corner = tilemap.get_cell(start_coord.x + corner.x, start_coord.y + corner.y) == utl.GRID.NONE
+		var can_move_corner = tm.get_cell(start_coord.x + corner.x, start_coord.y + corner.y) == utl.ROCK.NONE
 		if can_move_0 and can_move_1 and can_move_corner:
 			dir_to_move = dir
 		elif can_move_0 and (not can_move_1):
@@ -106,7 +102,7 @@ func _check_can_move_section(start, params):
 	var coord = Vector2(params[0], params[2])
 	while coord.x <= params[1]:
 		while coord.y <= params[3]:
-			if tilemap.get_cell(start.x + coord.x, start.y + coord.y) != utl.GRID.NONE:
+			if tm.get_cell(start.x + coord.x, start.y + coord.y) != utl.ROCK.NONE:
 				can_move = false
 			coord.y += 1
 		coord.y = params[2]
