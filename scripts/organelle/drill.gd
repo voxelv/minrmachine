@@ -11,6 +11,7 @@ func get_rotation_sprite():
 
 func activate():
 	animation.play("extend")
+	
 
 func deactivate():
 	animation.play("retract")
