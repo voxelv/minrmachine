@@ -1,14 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/organelle/drill.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/organelle/drill_base.png" type="Texture" id=2]
-[ext_resource path="res://assets/textures/organelle/drill.png" type="Texture" id=3]
-[ext_resource path="res://assets/textures/organelle/drill_base_extend.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/organelle/drill.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 
 resource_name = "extend"
-length = 0.1
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("drill_base/drill_head:position")
@@ -17,52 +14,53 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.01 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 10, 8.86917e-005 ), Vector2( 25, 0.000222206 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("drill_base:texture")
+tracks/1/path = NodePath("drill_base/drill_extender:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.01 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.45, 0.55, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ), ExtResource( 4 ) ]
+"values": [ 3, 3, 4, 4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("drill_base/drilling_pos:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 24, 12 ), Vector2( 39, 12 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
-resource_name = "retract"
-length = 0.1
-step = 0.01
+resource_name = "drilling"
+length = 0.45
+loop = true
+step = 0.15
 tracks/0/type = "value"
-tracks/0/path = NodePath("drill_base/drill_head:position")
+tracks/0/path = NodePath("drill_base/drill_head:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.01 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 25, 0.000222206 ), Vector2( 10, 8.86917e-005 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("drill_base:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.01 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ), ExtResource( 2 ) ]
+"values": [ 0, 1, 2 ]
 }
 
 [node name="drill" type="Node2D"]
@@ -73,19 +71,43 @@ __meta__ = {
 }
 
 [node name="drill_base" type="Sprite" parent="."]
-rotation = -8.88506e-006
 texture = ExtResource( 2 )
 centered = false
+vframes = 3
+hframes = 3
+frame = 6
+
+[node name="drill_extender" type="Sprite" parent="drill_base"]
+rotation = -8.88506e-006
+z_index = 1
+texture = ExtResource( 2 )
+centered = false
+vframes = 3
+hframes = 3
+frame = 3
 
 [node name="drill_head" type="Sprite" parent="drill_base"]
 position = Vector2( 10, 8.86917e-005 )
-texture = ExtResource( 3 )
+rotation = -8.88506e-006
+z_index = 2
+texture = ExtResource( 2 )
 centered = false
+vframes = 3
+hframes = 3
+frame = 2
+region_rect = Rect2( 0, 0, 25, 25 )
 
-[node name="drilling_pos" type="Position2D" parent="drill_base/drill_head"]
-position = Vector2( 12.5, 12.5 )
+[node name="drilling_pos" type="Position2D" parent="drill_base"]
+position = Vector2( 24, 12 )
+rotation = -8.88506e-006
 
-[node name="animation" type="AnimationPlayer" parent="."]
+[node name="extend_animation" type="AnimationPlayer" parent="."]
 anims/extend = SubResource( 1 )
-anims/retract = SubResource( 2 )
+
+[node name="drilling_animation" type="AnimationPlayer" parent="."]
+anims/drilling = SubResource( 3 )
+
+[node name="drill_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 

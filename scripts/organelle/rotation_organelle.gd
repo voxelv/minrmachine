@@ -3,7 +3,7 @@ extends "organelle.gd"
 var _direction_lkup:Array = [utl.DIRECTION.E, utl.DIRECTION.S, utl.DIRECTION.W, utl.DIRECTION.N]
 onready var rotation_sprite:Sprite = get_rotation_sprite()
 
-func get_rotation_sprite():
+func get_rotation_sprite() -> Sprite:
 	return(null)
 
 func activate():

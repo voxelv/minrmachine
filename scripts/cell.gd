@@ -59,3 +59,18 @@ func del_organelle(vcoord):
 			del_wire(vcoord)
 		return(prev_organelle)
 
+func get_coord_from_pos(world_pos:Vector2) -> Vector2:
+	return(o_grid.world_to_map(world_pos))
+
+func interact_at_coord(coord, interaction_type):
+	match(interaction_type):
+		utl.INTERACTION.REMOVE:
+			print("REMOVE interaction at: ", coord)
+			var got_tile = grid.remove_tile_at(grid.map_to_world(coord))
+			if got_tile != utl.ROCK.NONE:
+				for inv_item in gamedata.player_inv:
+					if inv_item.type == got_tile:
+						inv_item.count += 1
+						gamedata.inv_needs_update = true
+		_:
+			pass

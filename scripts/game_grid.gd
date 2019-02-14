@@ -8,18 +8,18 @@ var ready = false
 func _ready():
 	ready = true
 
-func _grid_coord_to_entity_coord(entity, coord:Vector2) -> Vector2:
+func grid_coord_to_entity_coord(entity, coord:Vector2) -> Vector2:
 	var entity_coord:Vector2 = tm.world_to_map(entity.get_cellv_test_pos())
 	return(coord - entity_coord)
 
-func _entity_coord_to_grid_coord(entity, coord:Vector2) -> Vector2:
+func entity_coord_to_grid_coord(entity, coord:Vector2) -> Vector2:
 	var entity_coord:Vector2 = tm.world_to_map(entity.get_cellv_test_pos())
 	return(coord + entity_coord)
 
 func _entity_clicked(coord:Vector2):
 	var result = null
 	for entity in grid_entities:
-		if entity.contains_coord(_grid_coord_to_entity_coord(entity, coord)):
+		if entity.contains_coord(grid_coord_to_entity_coord(entity, coord)):
 			result = entity
 			break
 	return result
@@ -49,7 +49,7 @@ func clicked_at(world_pos:Vector2, event:InputEventMouseButton) -> void:
 	var v = tm.world_to_map(world_pos)
 	var entity = _entity_clicked(v)
 	if entity != null:
-		entity.click_at(_grid_coord_to_entity_coord(entity, v), event)
+		entity.click_at(grid_coord_to_entity_coord(entity, v), event)
 	else:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			_click_rock_grid(v)
@@ -79,6 +79,7 @@ func remove_tile_at(world_pos:Vector2) -> int:
 	var v = tm.world_to_map(world_pos)
 	var prev_tile:int = tm.get_cellv(v)
 	tm.set_cellv(v, utl.ROCK.NONE)
+	tm.update_bitmask_area(v)
 	return(prev_tile)
 
 func request_move(grid_entity, direction):

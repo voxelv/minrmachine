@@ -101,7 +101,7 @@ func dir_to_offset(direction:int):
 	return Vector2(x, y)
 
 func rotate_25px_sprite(sprite:Sprite, direction:int):
-	var _rotations = [0, PI/2, PI, 3*PI/2]
+	var _rotations = [0.00, 90.00, 180.00, 270.00]
 	var _positions = [Vector2(0, 0), Vector2(25, 0), Vector2(25, 25), Vector2(0, 25)]
 	var _flip_v = [false, false, true, true]
 	
@@ -119,7 +119,7 @@ func rotate_25px_sprite(sprite:Sprite, direction:int):
 		_:
 			pass
 	
-	sprite.rotation = _rotations[idx]
+	sprite.rotation_degrees = _rotations[idx]
 	sprite.position = _positions[idx]
 	sprite.flip_v = _flip_v[idx]
 
