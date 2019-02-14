@@ -31,18 +31,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 3, 3, 4, 4 ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("drill_base/drilling_pos:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 24, 12 ), Vector2( 39, 12 ) ]
-}
 
 [sub_resource type="Animation" id=3]
 
@@ -98,7 +86,7 @@ frame = 2
 region_rect = Rect2( 0, 0, 25, 25 )
 
 [node name="drilling_pos" type="Position2D" parent="drill_base"]
-position = Vector2( 24, 12 )
+position = Vector2( 37, 12 )
 rotation = -8.88506e-006
 
 [node name="extend_animation" type="AnimationPlayer" parent="."]
