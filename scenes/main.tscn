@@ -178,7 +178,6 @@ width = 5
 height = 5
 speed = 0.1
 can_move = true
-
 [connection signal="pressed" from="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2/reset_view_button" to="game_area/Camera2D" method="_on_reset_view_button_pressed"]
 [connection signal="zoom_label_set" from="game_area/Camera2D" to="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2/zoom_label" method="_on_Camera2D_zoom_label_set"]
 [connection signal="player_moved" from="game_area/game_grid/player_cell" to="game_area/Camera2D" method="_on_player_moved"]
