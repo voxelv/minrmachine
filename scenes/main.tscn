@@ -31,7 +31,6 @@ mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="game_glass" type="CenterContainer" parent="ui_layer/HBoxContainer/VBoxContainer"]
-editor/display_folded = true
 margin_right = 834.0
 margin_bottom = 522.0
 mouse_filter = 2
@@ -45,7 +44,6 @@ margin_right = 417.0
 margin_bottom = 261.0
 
 [node name="h_bar" type="MarginContainer" parent="ui_layer/HBoxContainer/VBoxContainer"]
-editor/display_folded = true
 margin_top = 526.0
 margin_right = 834.0
 margin_bottom = 600.0
@@ -134,11 +132,8 @@ script = ExtResource( 5 )
 [node name="game_area" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="game_area"]
-editor/display_folded = true
 anchor_mode = 0
 current = true
-drag_margin_h_enabled = false
-drag_margin_v_enabled = false
 script = ExtResource( 6 )
 
 [node name="movement_slew" type="Tween" parent="game_area/Camera2D"]
@@ -178,7 +173,6 @@ width = 5
 height = 5
 speed = 0.1
 can_move = true
-
 [connection signal="pressed" from="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2/reset_view_button" to="game_area/Camera2D" method="_on_reset_view_button_pressed"]
 [connection signal="zoom_label_set" from="game_area/Camera2D" to="ui_layer/HBoxContainer/v_bar/MarginContainer/VBoxContainer/HBoxContainer2/zoom_label" method="_on_Camera2D_zoom_label_set"]
 [connection signal="player_moved" from="game_area/game_grid/player_cell" to="game_area/Camera2D" method="_on_player_moved"]
